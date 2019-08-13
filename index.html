@@ -4,40 +4,181 @@
 <html>
 
 <head>
+    <link href="https://fonts.googleapis.com/css?family=UnifrakturCook:700&display=swap" rel="stylesheet">
     <meta charset="utf-8" />
-    <title>Gamedev Canvas Workshop</title>
+    <title>Pirate Kittens</title>
     <style>
         * {
             padding: 0;
             margin: 0;
         }
 
+        h1 {
+            font-family: 'UnifrakturCook', cursive;
+            text-align: center;
+        }
+
+        header {
+            width: 100%;
+            background-color: lightseagreen;
+            color: white;
+        }
+
         canvas {
             background: #eee;
             display: block;
             margin: 0 auto;
+            margin-top: 30px;
+            border-radius: 8px;
         }
+
+        /* .text-input {
+            display: 
+            position: fixed;
+            top: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            font-size: 30px;
+        } */
+
+        
+
     </style>
 </head>
 
 <body>
-
-    <canvas id="myCanvas" width="480" height="320"></canvas>
+    <header><h1>Pirate Kittens</h1></header>
+    <div class="game" style="position:relative;display:flex;justify-content:center;"disp>
+        <div>
+            <span id=message></span>
+        </div>
+        <canvas id="canvas" width="800" height="600"></canvas>
+        <input type="text" 
+                id="word-input"
+                style="position:absolute;top:100px;text-align:center;padding:15px;background-color:transparent;width:500px;font-size:20px;color:white;"
+                placeholder="Start typing..."
+                autofocus/>
+        <div style="position:absolute;text-align:left;">Score:
+            <span id="score" >0</span>
+        </div>
+    </div>
+    
+    <div>
+        <img src="https://game-seeds.s3.amazonaws.com/cheetah-edited.png" id="cheetah"  />
+    </div>
 
     <script>
-       var canvas = document.getElementById('viewport'),
-       context = canvas.getContext('2d');
 
-       make_base();
+        window.addEventListener('load', init)
+        // Globals
 
-       function make_base()
-       {
-       base_image = new Image();
-       base_image.src = 'img/cheetah.jpg';
-       base_image.onload = function(){
-       context.drawImage(base_image, 0, 0);
+        let time= 60;
+        let score=0;
+        let isPlaying;
+        let currentWords = [];
+
+     // Images
+        const backgroundImage = new Image();
+        backgroundImage.src = 'https://game-seeds.s3.amazonaws.com/background.png';
+        const kittenImage = new Image();
+        kittenImage.src = 'https://game-seeds.s3.amazonaws.com/mini-pirates.png';
+        const kittenPos = [0,400]
+
+    // DOM Elements
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const wordInput = document.querySelector('#word-input');
+        const scoreDisplay = document.querySelector('#score');
+        const message = document.querySelector('#message');
+        
+
+        // const c = document.getElementById('cheetah'); // DOM Manipulation (as opposed to canvas-- maybe come back to this)
+
+    // Dictionary
+        const words = [
+            'bubblegum',
+            'river',
+            'popcorn',
+            'revolver',
+            'magic',
+            'potato' 
+        ];  
+ 
+    // Logic
+
+        // Initialize Game
+        function init() {
+            // load  word from arrow
+            // showWord(words)
+        }
+
+        // pick and show random  word 
+        function randomWord(words)  {
+            // Generate random array index
+            const randomIndex = Math.floor(Math.random()  * words.length);
+            return words[randomIndex];
+            // Output a randomword
+        }
+
+       function animate(kitten) {
+            kitten.update()
+            ctx.clearRect(0,0,800,600);
+            background.draw();
+            kitten.draw();
+
+            if (kittenPos[0] < 800 ) {
+                // c.style.transform =`translate(${kittenPos[0]}px, 0px)`
+                // document.getElementById('cheetah');
+                 // DOM Manipulation (as opposed to canvas-- maybe come back to this if you comment 'c' back in above)
+                
+                window.requestAnimationFrame(() => animate(kitten));
+            }
+            
        }
-       }
+        kittenImage.onload = function() {
+            background = new Background(backgroundImage);
+            word = randomWord(words);
+            newKitten = new Kitten([0,400], word, kittenImage)
+            window.requestAnimationFrame(() => animate(newKitten));
+        }
+
+    // Classes
+        class Kitten {
+            constructor(kittenPos, word, kittenImage) {
+                this.kittenPos = kittenPos;
+                this.word = word;
+                this.kittenImage = kittenImage
+            }
+
+            update() {
+                this.kittenPos[0] ++
+            }
+
+            // ultimately take in ctx for draw
+            draw() {
+                // debugger
+                 ctx.drawImage(this.kittenImage, ...this.kittenPos);
+                 ctx.font = "16px Arial";
+                 ctx.fillStyle = "aquamarine";
+                 ctx.fillText(this.word, (this.kittenPos[0] + 30), (this.kittenPos[1] +165));
+                 currentWords.push(this.word);
+            }
+        }
+
+    
+        class Background {
+            constructor(backgroundImage) {
+                this.backgroundImage = backgroundImage;
+            }
+
+            draw() {
+                ctx.drawImage(this.backgroundImage, 0, 0)
+            }
+
+        }
+  
+    
+
     </script>
 
 </body>
