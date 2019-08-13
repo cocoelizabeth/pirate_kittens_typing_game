@@ -14,6 +14,65 @@ The graphics are inspired by Lisa Frank animals but will have a more pastel tone
 * Pirate kittens sould continuously sail in until they reach the treasure 
 
 
+## Technologies and Architecture
+### `Vanilla JavaScript`
+* Overall structure
+* Game logic
 
+### `HTML5 Canvas`
+* DOM manipulation
+* Rendering animation
+* `Paper.js`: a library built on top of canvas that might be able to handle the  wave effects
+
+### `Webpack` 
+* Bundle various scripts into a single source
+
+### Words API
+* A words API to generate random words
+
+### File Structure:
+* Webpack entry file
+* `index.html`: renders the canvas;
+* `index.js`: entry file, main structure of the canvas and the center game logic;
+* `board.js`: renders the tropical ocean background;
+* `waves.js`: handles the wave animation
+* `player.js`: 
+* `kittens.js`: recieves input from typing and handles reaction;
+* `scoreboard.js`: fetches score & time and displays them on screen
+
+
+
+## Implementation Timeline:
+**Weekend**
+- [x] Complete Brickbreaker tutorial
+
+**Monday**
+- [x] Brainstorm initial concept
+- [x] Create Repo
+- [x] Finish Timeline
+
+**Tuesday**
+- [ ] Briefly research games using HTML5 canvas,  vector graphics, and paper.js
+- [ ] Finalize structure
+- [ ] Complete basic page skeleton and functionality
+- [ ] Complete board design and rendering
+
+**Wednesday**
+- [ ] Implement typing game logic
+- [ ] Implement logic to slow down kittens
+
+**Thursday**
+- [ ] Finish implementing functionality
+- [ ] Finish scoreboard
+- [ ] Styling and animation
+
+**Friday**
+- [ ] Finish Styling
+- [ ] Start Bonus Features
+
+## Bonus Features
+* Music
+* High Score Saving
+* Ability to choose level of dificulty 
 
 
