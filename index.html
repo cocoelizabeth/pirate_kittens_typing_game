@@ -58,9 +58,16 @@
                 style="position:absolute;top:100px;text-align:center;padding:15px;background-color:transparent;width:500px;font-size:20px;color:white;"
                 placeholder="Start typing..."
                 autofocus/>
-        <div style="position:absolute;text-align:left;">Score:
-            <span id="score" >0</span>
+        <div id="time-and-score-container" style="display:flex;justify-content:space-between;width:700px; position:absolute;top:50px;">
+            <div>Score:
+                <span id="score">0</span>
+            </div>
+            <div>Time:
+                <span id="time">60</span>
+            </div>
         </div>
+
+        
     </div>
     
     <div>
@@ -89,6 +96,7 @@
         const ctx = canvas.getContext('2d');
         const wordInput = document.querySelector('#word-input');
         const scoreDisplay = document.querySelector('#score');
+        const timeDisplay = document.querySelector('#time')
         const message = document.querySelector('#message');
         
 
@@ -108,16 +116,61 @@
 
         // Initialize Game
         function init() {
-            // load  word from arrow
-            // showWord(words)
+            // create background image
+            // background = new Background(backgroundImage);
+            // start  matching on word input
+            wordInput.addEventListener('input', startMatch);
+            // onChange??
+            // Call countdown every second
+            setInterval(countdown, 1000);
+            // Check game status
+            setInterval(checkStatus, 50);
+        }
+
+        // Start Match
+        function startMatch() {
+            let value = wordInput.value;
+            if(words.indexOf(value) > -1) {
+                    i = words.indexOf(value);
+                    scoreDisplay.innerHTML++;
+                    words.splice(i, 1);
+                    wordInput.value="";
+            }
+        }
+
+        // Match a word in the currentWords array to the wordInput
+        function matchWords(){
+
         }
 
         // pick and show random  word 
         function randomWord(words)  {
             // Generate random array index
             const randomIndex = Math.floor(Math.random()  * words.length);
+             // Output a randomword
             return words[randomIndex];
-            // Output a randomword
+           
+        }
+
+        // Countdown timer
+        function countdown() {
+            // Make sure time is  not run out
+            if(time > 0) {
+                // decrement time
+                time--;
+            }else  if(time === 0) {
+                isPlaying = false;
+            }
+
+            // Show time
+            timeDisplay.innerHTML = time;
+        }
+
+        // Check game status
+        function checkStatus() {
+            if(!isPlaying && time === 0) {
+                message.innerHTML = 'Game Over!'
+            }
         }
 
        function animate(kitten) {
