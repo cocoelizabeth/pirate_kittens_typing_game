@@ -83,10 +83,12 @@
         let score=0;
         let isPlaying;
         let currentWords = [];
+        let characters = [];
 
      // Images
         const backgroundImage = new Image();
-        backgroundImage.src = 'https://game-seeds.s3.amazonaws.com/background.png';
+        backgroundImage.src = 'https://game-seeds.s3.amazonaws.com/background.jpg'
+        
         const kittenImage = new Image();
         kittenImage.src = 'https://game-seeds.s3.amazonaws.com/mini-pirates.png';
         const kittenPos = [0,400]
@@ -116,24 +118,32 @@
 
         // Initialize Game
         function init() {
-            // create background image
-            // background = new Background(backgroundImage);
             // start  matching on word input
-            wordInput.addEventListener('input', startMatch);
+            wordInput.addEventListener('input', matchInput);
             // onChange??
             // Call countdown every second
             setInterval(countdown, 1000);
             // Check game status
             setInterval(checkStatus, 50);
+            // setInterval(releaseMoreKittens, 2000);
         }
 
-        // Start Match
-        function startMatch() {
+        function releaseMoreKittens() {
+            const word = randomWord();
+            const pos = randomPosition();
+            const newKitten = new Kitten(pos, word, kittenImage);
+            newKitten.draw();
+            // window.requestAnimationFrame(() => animate(newKitten));
+       
+        }
+
+        // Match input
+        function matchInput() {
             let value = wordInput.value;
-            if(words.indexOf(value) > -1) {
-                    i = words.indexOf(value);
+            if(currentWords.indexOf(value) > -1) {
+                    i = currentWords.indexOf(value);
                     scoreDisplay.innerHTML++;
-                    words.splice(i, 1);
+                    currentWords.splice(i, 1);
                     wordInput.value="";
             }
         }
@@ -144,12 +154,20 @@
         }
 
         // pick and show random  word 
-        function randomWord(words)  {
+        function randomWord()  {
             // Generate random array index
             const randomIndex = Math.floor(Math.random()  * words.length);
+            // Save random word to a variable & push it into currentWords array
+            word = words[randomIndex]
+            currentWords.push(word);
              // Output a randomword
-            return words[randomIndex];
+            return word;
            
+        }
+
+        function randomPosition() {
+            const randomPosition = Math.floor(Math.random() * 300)
+            return [0, randomPosition];
         }
 
         // Countdown timer
@@ -177,8 +195,9 @@
             kitten.update()
             ctx.clearRect(0,0,800,600);
             background.draw();
+            
             kitten.draw();
-
+            
             if (kittenPos[0] < 800 ) {
                 // c.style.transform =`translate(${kittenPos[0]}px, 0px)`
                 // document.getElementById('cheetah');
@@ -200,7 +219,7 @@
             constructor(kittenPos, word, kittenImage) {
                 this.kittenPos = kittenPos;
                 this.word = word;
-                this.kittenImage = kittenImage
+                this.kittenImage = kittenImage;
             }
 
             update() {
@@ -214,7 +233,7 @@
                  ctx.font = "16px Arial";
                  ctx.fillStyle = "aquamarine";
                  ctx.fillText(this.word, (this.kittenPos[0] + 30), (this.kittenPos[1] +165));
-                 currentWords.push(this.word);
+                //  currentWords.push(this.word);
             }
         }
 
