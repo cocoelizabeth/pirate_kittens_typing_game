@@ -1,0 +1,63 @@
+header {
+    width: 100%;
+}
+
+.title {
+    background-color: lightseagreen;
+    color: white;
+}
+.game-message-container {
+    text-align: center;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'UnifrakturCook', sans-serif;
+}
+
+
+.game {
+   position: relative;
+   display: flex;
+   justify-content: center;
+}
+
+
+canvas {
+    background: #eee;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.user-word-input {
+    position: absolute;
+    top: 90px;
+    text-align: center;
+    padding:15px;
+    background-color: transparent;
+    width: 500px;
+    font-size:20px; 
+    color:white;
+}
+
+.time-and-score-container {
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+    position: absolute;
+    top:20px;
+    font-family: 'UnifrakturCook', sans-serif;
+    font-size: 35px;
+    color: white;
+    text-shadow: 2px 2px purple;
+}
+
+.large-cheetah-image {
+    /* add styling here */
+}
+
+
+
+
+

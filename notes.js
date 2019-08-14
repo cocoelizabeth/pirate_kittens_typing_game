@@ -25,3 +25,8 @@ const curry = new NBAPlayer("steph curry", "warriors", "point guard");
 // method style invocation. 
 // 'this' is bound to 'curry' because it is called directly on curry
 curry.dunk();
+
+
+Notes on project: 
+
+
