@@ -2,6 +2,7 @@
      
      window.addEventListener('load', init);
      // Globals
+     // modes
 
      let time = 30;
      let score = 0;
@@ -30,7 +31,14 @@
      // const c = document.getElementById('cheetah'); // DOM Manipulation (as opposed to canvas-- maybe come back to this)
 
      // Dictionary
-     const words = [
+    // const dictionary = currentMode;
+    // const mode = {
+    //     words: words,
+    //     coding: coding,
+    // };
+
+    // const currentMode = mode.words;
+    const words = [
          'bubblegum',
          'river',
          'popcorn',
@@ -183,6 +191,8 @@
      function checkStatus() {
          if (!isPlaying && time === 0) {
              message.innerHTML = 'Game Over!';
+             score = 0;
+             scoreDisplay.innerHTML=0;
          }
      }
 
