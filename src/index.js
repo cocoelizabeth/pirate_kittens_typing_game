@@ -16,14 +16,14 @@
 
      const kittenImage = new Image();
      kittenImage.src = 'https://game-seeds.s3.amazonaws.com/mini-pirates.png';
-     const kittenPos = [0, 400]
+     const kittenPos = [0, 400];
 
      // DOM Elements
      const canvas = document.getElementById('canvas');
      const ctx = canvas.getContext('2d');
      const wordInput = document.querySelector('#word-input');
      const scoreDisplay = document.querySelector('#score');
-     const timeDisplay = document.querySelector('#time')
+     const timeDisplay = document.querySelector('#time');
      const message = document.querySelector('#message');
 
 
@@ -39,7 +39,7 @@
          'potato',
          'blockhead',
          'loophole',
-         'ambidexterous',
+         'ambidextrous',
          'fish',
          'nineteen',
          'clover',
@@ -72,7 +72,18 @@
          'ketchup',
          'koala',
          'panther',
-         'flower'
+         'flower',
+         'squishmallow',
+         'synesthesia',
+         'tempestuous',
+         'falafel',
+         'pedestrian',
+         'dennis rodman',
+         'basketball',
+         'rainforest',
+         'meow',
+         'dentures',
+         'helen keller',
      ];
 
      // Logic
@@ -115,8 +126,8 @@
          let value = wordInput.value;
          if (currentWords.indexOf(value) > -1) {
              let i = currentWords.indexOf(value);
-             scoreDisplay.innerHTML++;
-             debugger
+             score ++;
+             scoreDisplay.innerHTML++; 
              currentWords.splice(i, 1);
              
              return true;
@@ -149,7 +160,9 @@
      }
 
      function randomPosition() {
-         const randomPosition = Math.floor(Math.random() * 300);
+         let randomPosition = Math.floor((Math.random() * 136) + 1);
+         randomPosition = 400-randomPosition;
+         console.log(randomPosition);
          return [0, randomPosition];
      }
 
@@ -169,7 +182,7 @@
      // Check game status
      function checkStatus() {
          if (!isPlaying && time === 0) {
-             message.innerHTML = 'Game Over!'
+             message.innerHTML = 'Game Over!';
          }
      }
 

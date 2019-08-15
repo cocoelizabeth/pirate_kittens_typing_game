@@ -6,7 +6,6 @@ class Kitten {
         this.activeKittens = activeKittens;
         this.currentWords = currentWords;
         this.active = true;
-
     }
 
     update(i) {
@@ -14,7 +13,6 @@ class Kitten {
         this.kittenPos[0]++
         if (this.active === false) {
             this.fly();
-            debugger
             this.activeKittens.splice(i, 1);
         }
         if (this.kittenPos[0] > 799) {
@@ -34,7 +32,9 @@ class Kitten {
     draw(ctx) {
         // debugger
         ctx.drawImage(this.kittenImage, ...this.kittenPos);
-        ctx.font = "16px Arial";
+        ctx.font = "16px Jura, sans-serif";
+        // ctx.font-family ="UnifrakturCook, sans-serif";
+        // ctx.font-size="16px";
         ctx.fillStyle = "aquamarine";
         ctx.fillText(this.word, (this.kittenPos[0] + 30), (this.kittenPos[1] + 165));
     }
