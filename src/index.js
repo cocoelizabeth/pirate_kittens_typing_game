@@ -12,10 +12,10 @@
 
      // Images
      const backgroundImage = new Image();
-     backgroundImage.src = 'https://game-seeds.s3.amazonaws.com/background.jpg'
+     backgroundImage.src = 'https://game-seeds.s3.amazonaws.com/background+with+palms.jpg'
 
      const kittenImage = new Image();
-     kittenImage.src = 'https://game-seeds.s3.amazonaws.com/mini-pirates.png';
+     kittenImage.src = 'https://game-seeds.s3.amazonaws.com/2-pirates-copy.png';
      const kittenPos = [0, 400];
 
      // DOM Elements
