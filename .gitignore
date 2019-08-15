@@ -28,6 +28,6 @@
 
 # Ignore these files
 node_modules/
-bundle.js
-bundle.js.map
+# bundle.js
+# bundle.js.map
 /artwork
