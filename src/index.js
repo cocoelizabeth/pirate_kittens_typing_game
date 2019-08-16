@@ -1,4 +1,6 @@
      import Kitten from "./js/kitten";
+     import words from "./js/words";
+
      
      window.addEventListener('load', init);
      // Globals
@@ -10,10 +12,6 @@
      let currentWords = [];
      let activeKittens = [];
 
-
-     // Images
-     const backgroundImage = new Image();
-     backgroundImage.src = 'https://game-seeds.s3.amazonaws.com/background+with+palms.jpg'
 
      const kittenImage = new Image();
      kittenImage.src = 'https://game-seeds.s3.amazonaws.com/2-pirates-copy.png';
@@ -38,61 +36,7 @@
     // };
 
     // const currentMode = mode.words;
-    const words = [
-         'bubblegum',
-         'river',
-         'popcorn',
-         'revolver',
-         'magic',
-         'potato',
-         'blockhead',
-         'loophole',
-         'ambidextrous',
-         'fish',
-         'nineteen',
-         'clover',
-         'beeswax',
-         'cereal',
-         'chameleon',
-         'lightbulb',
-         'gibberish',
-         'serpent',
-         'gamble',
-         'bunny',
-         'doorman',
-         'amateur',
-         'jigsaw',
-         'cultish',
-         'bamboo',
-         'bumblebee',
-         'pumpkin',
-         'harmonica',
-         'haircut',
-         'jellyfish',
-         'quarrelsome',
-         'fax machine',
-         'fairies',
-         'rhyme',
-         'embarrassing',
-         'pajamas',
-         'duffel bag',
-         'overpriced',
-         'ketchup',
-         'koala',
-         'panther',
-         'flower',
-         'squishmallow',
-         'synesthesia',
-         'tempestuous',
-         'falafel',
-         'pedestrian',
-         'dennis rodman',
-         'basketball',
-         'rainforest',
-         'meow',
-         'dentures',
-         'helen keller',
-     ];
+
 
      // Logic
 
@@ -118,26 +62,14 @@
 
      }
 
-     // Match input - OLD WORKING CODE
-     // function matchInput() {
-     //     let value = wordInput.value;
-     //     if(currentWords.indexOf(value) > -1) {
-     //             i = currentWords.indexOf(value);
-     //             scoreDisplay.innerHTML++;
-     //             currentWords.splice(i, 1);
-     //             wordInput.value="";
-     //     }
-     // }
 
-     // NEW:
+
      function matchInput() {
          let value = wordInput.value;
          if (currentWords.indexOf(value) > -1) {
              let i = currentWords.indexOf(value);
              score ++;
              scoreDisplay.innerHTML++; 
-             currentWords.splice(i, 1);
-             
              return true;
          }
      }
@@ -149,7 +81,6 @@
              isPlaying = true;
              activeKittens[i].active = false;
              activeKittens[i].update(i);
-            // activeKittens[i].fly();
              wordInput.value = "";
          }
      }
@@ -191,6 +122,7 @@
      function checkStatus() {
          if (!isPlaying && time === 0) {
              message.innerHTML = 'Game Over!';
+            // add game over screen
              score = 0;
              scoreDisplay.innerHTML=0;
          }
@@ -199,10 +131,11 @@
 
      function animate(activeKittens) {
          ctx.clearRect(0, 0, 800, 600);
-         const background = new Background(backgroundImage);
-         background.draw();
+       
          for (let i = 0; i < activeKittens.length; i++) {
-             activeKittens[i].update().draw(ctx);
+             const currentCat = activeKittens[i];
+             if (currentCat.update()) i--;
+             currentCat.draw(ctx);
          }
 
 
@@ -222,11 +155,9 @@
 
      }
      kittenImage.onload = function () {
-        //  const background = new Background(backgroundImage);
          const word = randomWord(words);
          const newKitten = new Kitten([0, 400], word, kittenImage, activeKittens, currentWords);
         
-         // new
          activeKittens.push(newKitten);
          window.requestAnimationFrame((timestamp) => {
              setInterval(releaseMoreKittens, 2000);
@@ -235,54 +166,4 @@
          });
      }
 
-     // Classes
-    //  class Kitten {
-    //      constructor(kittenPos, word, kittenImage) {
-    //          this.kittenPos = kittenPos;
-    //          this.word = word;
-    //          this.kittenImage = kittenImage;
 
-    //      }
-
-    //      update() {
-
-    //          this.kittenPos[0]++
-    //          if (this.word === "") {
-    //              this.fly();
-    //              activeKittens.splice(i,1);
-    //          }
-    //          if (this.kittenPos[0] > 799) {
-    //              i = activeKittens.indexOf(this);
-    //              activeKittens.splice(i,1);
-    //              currentWords.splice(i,1);
-                 
-    //          }
-    //          return this;
-    //      }
-
-    //      fly() {
-    //          this.kittenPos[0] += 5
-    //          this.kittenPos[1] -= 5
-    //      }
-
-    //      // ultimately take in ctx for draw
-    //      draw() {
-    //          // debugger
-    //          ctx.drawImage(this.kittenImage, ...this.kittenPos);
-    //          ctx.font = "16px Arial";
-    //          ctx.fillStyle = "aquamarine";
-    //          ctx.fillText(this.word, (this.kittenPos[0] + 30), (this.kittenPos[1] + 165));
-    //      }
-    //  }
-
-
-     class Background {
-         constructor(backgroundImage) {
-             this.backgroundImage = backgroundImage;
-         }
-
-         draw() {
-             ctx.drawImage(this.backgroundImage, 0, 0);
-         }
-
-     }

@@ -34,10 +34,17 @@ figure {
     margin: 0;
 }
 
+
+
 input::-moz-focus-inner {
     border: 0;
     padding: 0;
     margin: 0;
+    outline: none;
+}
+
+input:focus {
+    outline: none;
 }
 
 ul,

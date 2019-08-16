@@ -24,7 +24,7 @@ header {
 
 
 canvas {
-    background: #eee;
+    background: transparent;
     display: block;
     margin: 0 auto;
     border-radius: 8px;
@@ -38,7 +38,17 @@ canvas {
     background-color: transparent;
     width: 500px;
     font-size:20px; 
-    color:white;
+    color:aquamarine;
+    border: none;
+    cursor: text;
+    font-family: Poppins;
+    font-size: 35px;
+    z-index: 2;
+    font-weight: 700;
+}
+
+.user-word-input::placeholder {
+    color:rgb(219, 199, 223);
 }
 
 .time-and-score-container {
@@ -49,8 +59,9 @@ canvas {
     top:20px;
     font-family: 'UnifrakturCook', sans-serif;
     font-size: 35px;
-    color: white;
+    color:white;
     text-shadow: 2px 2px purple;
+    z-index: 5;
 }
 
 .large-cheetah-image {

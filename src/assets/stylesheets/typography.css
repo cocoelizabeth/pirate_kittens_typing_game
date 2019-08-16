@@ -14,5 +14,12 @@ body {
 h1 {
     font-family: 'UnifrakturCook', cursive;
     text-align: center;
-    font-size: 30px;
+    font-size: 50px;
+}
+
+.time-and-score-container {
+    font-family: 'UnifrakturCook', sans-serif;
+    font-size: 35px;
+    color: white;
+    text-shadow: 2px 2px purple;
 }
