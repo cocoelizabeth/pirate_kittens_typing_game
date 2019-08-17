@@ -1,3 +1,6 @@
+@-webkit-keyframes typing { from { width: 0; } }
+@-webkit-keyframes blink-caret { 50% { border-color: transparent; } }
+
 html {
     font-size: 1px;
     /*for using REM units*/
@@ -15,6 +18,18 @@ h1 {
     font-family: 'UnifrakturCook', cursive;
     text-align: center;
     font-size: 50px;
+  
+}
+
+.type-animation {
+    border-right: .1em solid black;
+    width: 5.5em;
+    margin: 0 auto;
+    overflow: hidden;
+    letter-spacing: .05em;
+    white-space: nowrap;
+    -webkit-animation: typing 2s steps(13, end),
+    blink-caret .5s step-end infinite alternate;
 }
 
 .time-and-score-container {
@@ -23,3 +38,41 @@ h1 {
     color: white;
     text-shadow: 2px 2px purple;
 }
+
+.birds {
+    position: absolute;
+    animation: fly-across 10s steps(40) infinite;
+    will-change: transform, opacity;
+    display: flex;
+    justify-content: flex-end;
+    width: 800px;
+
+}
+
+.bird {
+    width: 128px;
+    height: 128px;
+    background: url(https://game-seeds.s3.amazonaws.com/birds.svg) left center;
+    animation: play 0.8s steps(5) infinite;
+    position: absolute;
+    
+    /* cx: "1000"; */
+}
+
+@keyframes play {
+    100% {background-position: 640px}
+}
+
+@keyframes fly-across {
+    0% {
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-800px)
+    }
+}
+    

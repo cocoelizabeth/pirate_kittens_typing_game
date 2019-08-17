@@ -22,5 +22,28 @@
     margin: 0 auto;
     z-index: 100;
     border-radius: 8px;
+    background-image: url(https://game-seeds.s3.amazonaws.com/new-background.png);
+    width: 800px;
+    height: 600px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
 }
 
+
+
+
+
+
+
+/* .boats {
+    position: absolute;
+  
+}
+
+.boat {
+    position: relative;
+    top: 400px;
+    left: 0px; 
+} */

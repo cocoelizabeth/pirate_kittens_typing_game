@@ -24,6 +24,9 @@
      const scoreDisplay = document.querySelector('#score');
      const timeDisplay = document.querySelector('#time');
      const message = document.querySelector('#message');
+     const gameOver = document.querySelector('.gameover');
+     const finalScore = document.querySelector('#final-score');
+     const wpm = document.querySelector('#wpm');
 
 
      // const c = document.getElementById('cheetah'); // DOM Manipulation (as opposed to canvas-- maybe come back to this)
@@ -55,7 +58,7 @@
      function releaseMoreKittens() {
          const word = randomWord();
          const pos = randomPosition();
-         const newKitten = new Kitten(pos, word, kittenImage, activeKittens, currentWords);
+         const newKitten = new Kitten(pos, word, kittenImage, activeKittens, currentWords, ctx);
          activeKittens.push(newKitten);
          // window.requestAnimationFrame(() => animate(newKitten))
          // window.requestAnimationFrame(() => animate(newKitten));
@@ -121,8 +124,21 @@
      // Check game status
      function checkStatus() {
          if (!isPlaying && time === 0) {
+             const playerStats = {
+                 yourScore: score,
+                 wpm: Math.floor(score * 2),
+             };
+             Object.freeze(playerStats);
+             clearInterval(init);
+            
+             gameOver.style.display = "flex";
+             debugger
+             finalScore.innerHTML = playerStats.yourScore;
+             debugger
+             wpm.innerHTML = playerStats.wpm;
              message.innerHTML = 'Game Over!';
-            // add game over screen
+            
+
              score = 0;
              scoreDisplay.innerHTML=0;
          }
@@ -156,7 +172,7 @@
      }
      kittenImage.onload = function () {
          const word = randomWord(words);
-         const newKitten = new Kitten([0, 400], word, kittenImage, activeKittens, currentWords);
+         const newKitten = new Kitten([0, 400], word, kittenImage, activeKittens, currentWords, ctx);
         
          activeKittens.push(newKitten);
          window.requestAnimationFrame((timestamp) => {

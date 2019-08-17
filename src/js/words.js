@@ -87,7 +87,6 @@ const words = [
     'honey',
     'marinade',
     'fossils',
-    'windowpane',
     'somersault',
     'trampoline',
     'libra',
