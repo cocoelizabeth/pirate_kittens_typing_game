@@ -99,6 +99,7 @@ kittenImage.src ='https://game-seeds.s3.amazonaws.com/pirate-outline-height-150.
          const randomIndex = Math.floor(Math.random() * words.length);
          // Save random word to a variable & push it into currentWords array
         const word = words[randomIndex];
+        words.splice(randomIndex, 1);
          currentWords.push(word);
          // Output a randomword
          return word;
