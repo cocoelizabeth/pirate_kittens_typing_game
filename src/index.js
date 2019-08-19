@@ -1,8 +1,9 @@
      import Kitten from "./js/kitten";
      import words from "./js/words";
-
+    
      
      window.addEventListener('load', init);
+     window.Image
      // Globals
      // modes
 
@@ -14,7 +15,9 @@
 
 
      const kittenImage = new Image();
-     kittenImage.src = 'https://game-seeds.s3.amazonaws.com/2-pirates-copy.png';
+kittenImage.src ='https://game-seeds.s3.amazonaws.com/pirate-outline-height-150.png';
+    // kittenImage.src ="https://game-seeds.s3.amazonaws.com/pirate-outline-height-130.png";
+    // kittenImage.src = 'https://game-seeds.s3.amazonaws.com/pirate-big-sit-outline.png';
      const kittenPos = [0, 400];
 
      // DOM Elements
@@ -60,6 +63,7 @@
          const pos = randomPosition();
          const newKitten = new Kitten(pos, word, kittenImage, activeKittens, currentWords, ctx);
          activeKittens.push(newKitten);
+        
          // window.requestAnimationFrame(() => animate(newKitten))
          // window.requestAnimationFrame(() => animate(newKitten));
 
@@ -132,9 +136,9 @@
              clearInterval(init);
             
              gameOver.style.display = "flex";
-             debugger
+           
              finalScore.innerHTML = playerStats.yourScore;
-             debugger
+         
              wpm.innerHTML = playerStats.wpm;
              message.innerHTML = 'Game Over!';
             
@@ -178,6 +182,7 @@
          window.requestAnimationFrame((timestamp) => {
              setInterval(releaseMoreKittens, 2000);
              animate(activeKittens);
+           
 
          });
      }

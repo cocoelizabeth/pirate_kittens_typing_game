@@ -41,7 +41,7 @@ h1 {
 
 .birds {
     position: absolute;
-    animation: fly-across 10s steps(40) infinite;
+    animation: fly-across 4s steps(40) infinite;
     will-change: transform, opacity;
     display: flex;
     justify-content: flex-end;

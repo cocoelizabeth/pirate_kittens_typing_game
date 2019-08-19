@@ -11,8 +11,10 @@ class Kitten {
     update(i) {
 
         this.kittenPos[0]++
+         
         if (this.active === false) {
             this.fly();
+
             // this.activeKittens.splice(i, 1);
             
         }
@@ -26,7 +28,7 @@ class Kitten {
     }
 
     fly() {
-        this.kittenPos[0] += 5;
+        this.kittenPos[0]--
         this.kittenPos[1] -= 5;
     }
 
@@ -39,7 +41,7 @@ class Kitten {
         // ctx.font-family ="UnifrakturCook, sans-serif";
         // ctx.font-size="16px";
         ctx.fillStyle = "white";
-        ctx.fillText(this.word, (this.kittenPos[0] + 30), (this.kittenPos[1] + 166));
+        ctx.fillText(this.word, (this.kittenPos[0] + 20), (this.kittenPos[1] + 144));
     }
 }
 
