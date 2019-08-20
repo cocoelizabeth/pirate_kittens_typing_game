@@ -43,7 +43,7 @@ class Kitten {
         ctx.shadowBlur = 10;
         ctx.shadowOffsetX = 3;
         ctx.shadowOffsetY = 3;
-        ctx.fillText(this.word, (this.kittenPos[0] + 20), (this.kittenPos[1] + 144));
+        ctx.fillText(this.word, (this.kittenPos[0] + 20), (this.kittenPos[1] + 143));
     }
 }
 
