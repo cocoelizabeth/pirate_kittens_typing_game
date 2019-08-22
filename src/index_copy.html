@@ -1,59 +1,57 @@
-
-
 <!DOCTYPE html>
 <html>
 
 <head>
-    <link rel='icon' href='favicon.ico' type='image/x-icon'/>
+    <link rel='icon' href='favicon.ico' type='image/x-icon' />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    
+
     <link href="https://fonts.googleapis.com/css?family=UnifrakturCook:700&display=swap" rel="stylesheet">
     <meta charset="utf-8" />
     <title>Pirate Kittens</title>
-    
+
 
     <meta name="viewport" content="width=device-with, initial-scale=1.0">
-    
-<!-- STYLESHEETS -->
+
+    <!-- STYLESHEETS -->
     <!-- Resets -->
     <link href="./src/assets/stylesheets/reset.css" rel="stylesheet">
     <link href="./src/assets/stylesheets/typography.css" rel="stylesheet">
     <link href="./src/assets/stylesheets/typography.css" rel="stylesheet">
 
-       <link href="./src/assets/stylesheets/svg_game.css" rel="stylesheet">
+    <link href="./src/assets/stylesheets/svg_game.css" rel="stylesheet">
 
 
     <link href="./src/assets/stylesheets/display.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Aldrich|Anton|Barlow|Barlow+Semi+Condensed|Jura|Poppins|Red+Hat+Display|Work+Sans&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Aldrich|Anton|Barlow|Barlow+Semi+Condensed|Jura|Poppins|Red+Hat+Display|Work+Sans&display=swap"
+        rel="stylesheet">
 
 </head>
 
 <body>
 
-    <header class="title"><h1>Pirate Kittens</h1></header>
+    <header class="title">
+        <h1>Pirate Kittens</h1>
+    </header>
     <div class="long">
-            
-         </div>
+
+    </div>
 
     <div class="treasures">
         <img src="https://game-seeds.s3.amazonaws.com/1-treasure.png" class="svg-trees" />
     </div>
 
-    
+
 
     <div class="game-message-container">
         <span id=message class="message"></span>
     </div>
     <div class="game" disp>
-        <canvas id="canvas" width="1024" height="450"></canvas>
-        <input type="text" 
-                id="word-input"
-                class="user-word-input"
-                placeholder="Start typing..."
-                autofocus/>
+        <canvas id="canvas" width="800" height="600"></canvas>
+        <input type="text" id="word-input" class="user-word-input" placeholder="Start typing..." autofocus />
         <div class="time-and-score-container">
             <div>Score:
                 <span id="score">0</span>
@@ -63,16 +61,16 @@
             </div>
         </div>
 
-         <img src="https://game-seeds.s3.amazonaws.com/svg+overlay.svg" class="svg-trees" />
-         <g class=birds>
-             <div class="bird"></div>
-         </g>
-   
-        <img src=" https://game-seeds.s3.amazonaws.com/1024-background.png" class="background" />
-        <!-- <img src="https://game-seeds.s3.amazonaws.com/kitten-game-background-gradient.svg" class="background" /> -->
-         <!-- <img src="https://game-seeds.s3.amazonaws.com/kitten-game-background-island.svg" class="background" /> -->
-      
-         <div class="gameover" style="display:none;">
+        <img src="https://game-seeds.s3.amazonaws.com/svg+overlay.svg" class="svg-trees" />
+        <g class=birds>
+            <div class="bird"></div>
+        </g>
+
+        <!-- <img src=" https://game-seeds.s3.amazonaws.com/1024-background.png" class="background" /> -->
+        <img src="https://game-seeds.s3.amazonaws.com/kitten-game-background-gradient.svg" class="background" />
+        <!-- <img src="https://game-seeds.s3.amazonaws.com/kitten-game-background-island.svg" class="background" /> -->
+
+        <div class="gameover" style="display:none;">
             <h1 class="type-animation">Game Over</h1>
             <!-- <h2>Final Score:
                 <span id="final-score">0</span>
@@ -83,16 +81,16 @@
         </div>
 
     </div>
-    
 
-        <div>
-            <img src="https://game-seeds.s3.amazonaws.com/cheetah-edited.png" id="cheetah" class="large-cheetah-image" />
-        </div>
 
-   
+    <div>
+        <img src="https://game-seeds.s3.amazonaws.com/cheetah-edited.png" id="cheetah" class="large-cheetah-image" />
+    </div>
+
+
     <script type="text/javascript" src="./dist/bundle.js"></script>
 
-  
+
 
 
 
@@ -100,4 +98,3 @@
 </body>
 
 </html>
-
