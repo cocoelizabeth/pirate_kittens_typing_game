@@ -71,20 +71,12 @@ canvas {
 
 
 
-.long {
-    width: 1024px;
-    height: 450px;
-    margin: 0 auto;
-    background-color: violet;
-    /* position: absolute; */
-}
-
 .treasures {
     position: absolute;
     display: flex;
     justify-content: flex-end;
     width: 85vw;
-    top: 320px;
+    top: 400px;
     margin: 0 auto;
     
 }
