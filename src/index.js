@@ -34,6 +34,8 @@ const ctx = canvas.getContext('2d');
 const wordInput = document.querySelector('#word-input');
 const scoreDisplay = document.querySelector('#score');
 const timeDisplay = document.querySelector('#time');
+const numMatchesDisplay = document.querySelector('#numMatches');
+const livesDisplay = document.querySelector("#lives");
 const message = document.querySelector('#message');
 const gameOver = document.querySelector('.gameover');
 const finalScore = document.querySelector('#final-score');
@@ -81,11 +83,9 @@ function releaseMoreKittens() {
 }
 
 function updateScore() {
-    debugger
-    if (isPlaying && time != 0)  {
+    if (!isGameOver())  {
         score++;
         scoreDisplay.innerHTML = score;
-
     }
   
 }
@@ -98,7 +98,6 @@ function matchInput() {
         let i = currentWords.indexOf(value);
         score += value.length*100;
         numMatches++;
-        console.log(numMatches);
         scoreDisplay.innerHTML++;
         return true;
     }
@@ -111,6 +110,7 @@ function handleMatch() {
     if (matchInput()) {
         const pos = activeKittens[i].kittenPos;
         isPlaying = true;
+        numMatchesDisplay.innerHTML++;
         const coin = new Coin(pos);
         coin.animateCoin();
         activeKittens[i].active = false;
@@ -157,11 +157,19 @@ function countdown() {
 }
 
 // Check game status
+
+function isGameOver() {
+    if (!isPlaying && time === 0 || lives < 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
 function checkStatus() {
-    if (!isPlaying && time === 0) {
+    if (isGameOver()) {
         const playerStats = {
             yourScore: score,
-            wpm: Math.floor(score * 2),
+            wpm: Math.floor(numMatches * 2),
         };
         Object.freeze(playerStats);
         clearInterval(init);
@@ -191,6 +199,7 @@ function animate(activeKittens) {
         if (currentCat.update()) {
             i--;
            lives--;
+           livesDisplay.innerHTML--;
         }
         currentCat.draw(ctx);
     }
