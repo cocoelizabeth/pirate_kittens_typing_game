@@ -11,10 +11,12 @@ window.Image
 
 let time = 30;
 let score = 0;
-let isPlaying;
+let isPlaying = true;
 let currentWords = [];
 let activeKittens = [];
 let flagPos = [];
+let numMatches = 0;
+let lives = 3;
 
 
 const kittenImage = new Image();
@@ -36,6 +38,7 @@ const message = document.querySelector('#message');
 const gameOver = document.querySelector('.gameover');
 const finalScore = document.querySelector('#final-score');
 const wpm = document.querySelector('#wpm');
+const playAgainButton = document.querySelector('#play-again-button');
 
 
 // const c = document.getElementById('cheetah'); // DOM Manipulation (as opposed to canvas-- maybe come back to this)
@@ -62,6 +65,8 @@ function init() {
     // Check game status
     setInterval(checkStatus, 50);
     // setInterval(releaseMoreKittens, 2000);
+    setInterval(updateScore, 50);
+ 
 }
 
 function releaseMoreKittens() {
@@ -75,13 +80,25 @@ function releaseMoreKittens() {
 
 }
 
+function updateScore() {
+    debugger
+    if (isPlaying && time != 0)  {
+        score++;
+        scoreDisplay.innerHTML = score;
+
+    }
+  
+}
+
 
 
 function matchInput() {
     let value = wordInput.value;
     if (currentWords.indexOf(value) > -1) {
         let i = currentWords.indexOf(value);
-        score++;
+        score += value.length*100;
+        numMatches++;
+        console.log(numMatches);
         scoreDisplay.innerHTML++;
         return true;
     }
@@ -155,10 +172,13 @@ function checkStatus() {
 
         wpm.innerHTML = playerStats.wpm;
         message.innerHTML = 'Game Over!';
+        playAgainButton.addEventListener('click', ()=> {
+            location.reload();
+        });
 
 
-        score = 0;
-        scoreDisplay.innerHTML = 0;
+        // score = 0;
+        // scoreDisplay.innerHTML = 0;
     }
 }
 
@@ -168,7 +188,10 @@ function animate(activeKittens) {
 
     for (let i = 0; i < activeKittens.length; i++) {
         const currentCat = activeKittens[i];
-        if (currentCat.update()) i--;
+        if (currentCat.update()) {
+            i--;
+           lives--;
+        }
         currentCat.draw(ctx);
     }
 

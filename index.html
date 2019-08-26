@@ -53,12 +53,16 @@
                 placeholder="Start typing..."
                 autofocus/>
         <div class="time-and-score-container">
-            <div>Score:
+            <div width=100px;>Score:
                 <span id="score">0</span>
             </div>
-            <div>Time:
+            <div>Lives:
+                <span id="lives">3</span>
+            </div>
+            <div width=100px;>Time:
                 <span id="time">30</span>
             </div>
+           
         </div>
 
          <!-- <img src="https://game-seeds.s3.amazonaws.com/svg+overlay.svg" class="svg-trees" /> -->
@@ -72,12 +76,13 @@
       
          <div class="gameover" style="display:none;">
             <h1 class="type-animation">Game Over</h1>
-            <!-- <h2>Final Score:
+            <h2>Final Score:
                 <span id="final-score">0</span>
             </h2> 
             <h2>Words Per Minute:
                 <span id="wpm">0</span>
-            </h2> -->
+            </h2>
+            <button id="play-again-button">Play Again</button>
         </div>
 
     </div>

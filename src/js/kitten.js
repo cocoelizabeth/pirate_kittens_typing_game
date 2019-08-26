@@ -1,7 +1,10 @@
 import Coin from "./coin";
 
+// let lives = 3;
+// const livesDisplay = document.querySelector('#lives');
+
 class Kitten {
-    constructor(kittenPos, word, kittenImage, activeKittens = [], currentWords = [], ctx) {
+    constructor(kittenPos, word, kittenImage, activeKittens = [], currentWords = [], ctx, lives) {
         this.kittenPos = kittenPos;
         this.word = word;
         this.kittenImage = kittenImage;
@@ -9,6 +12,7 @@ class Kitten {
         this.currentWords = currentWords;
         this.active = true;
         this.ctx = ctx;
+        this.lives = lives;
     }
 
     update(i) {
@@ -35,6 +39,7 @@ class Kitten {
             let i = this.activeKittens.indexOf(this);
             this.activeKittens.splice(i, 1);
             this.currentWords.splice(i, 1);
+          
             return true;
         }
         return false;
