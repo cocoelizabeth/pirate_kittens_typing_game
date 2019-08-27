@@ -1,6 +1,7 @@
 import Kitten from "./js/kitten";
 import words from "./js/words";
 import Coin from "./js/coin";
+import Flag from "./js/flag";
 
 
 
@@ -17,6 +18,9 @@ let activeKittens = [];
 let flagPos = [];
 let numMatches = 0;
 let lives = 3;
+let releaseKittenInterval = 1000;
+let totalChars = 0;
+
 
 
 const kittenImage = new Image();
@@ -61,21 +65,30 @@ const playAgainButton = document.querySelector('#play-again-button');
 function init() {
     // start  matching on word input
     wordInput.addEventListener('input', handleMatch);
+    wordInput.addEventListener('keypress', function(e) {
+        if (e.keyCode === 13) {
+            wordInput.value = "";
+        }
+    })
     // onChange??
     // Call countdown every second
     setInterval(countdown, 1000);
     // Check game status
     setInterval(checkStatus, 50);
     // setInterval(releaseMoreKittens, 2000);
-    setInterval(updateScore, 50);
+    setInterval(updateScore, 400);
+    setInterval(updateReleaseKittenInterval, 10000);
  
 }
 
 function releaseMoreKittens() {
-    const word = randomWord();
-    const pos = randomPosition();
-    const newKitten = new Kitten(pos, word, kittenImage, activeKittens, currentWords, ctx);
-    activeKittens.push(newKitten);
+    if (isPlaying) {
+        const word = randomWord();
+        const pos = randomPosition();
+        const newKitten = new Kitten(pos, word, kittenImage, activeKittens, currentWords, ctx);
+        activeKittens.push(newKitten);
+
+    }
 
     // window.requestAnimationFrame(() => animate(newKitten))
     // window.requestAnimationFrame(() => animate(newKitten));
@@ -84,10 +97,14 @@ function releaseMoreKittens() {
 
 function updateScore() {
     if (!isGameOver())  {
-        score++;
+        // score++;
         scoreDisplay.innerHTML = score;
     }
   
+}
+
+function updateReleaseKittenInterval() {
+    this.releaseKittenInterval +=10;
 }
 
 
@@ -96,9 +113,12 @@ function matchInput() {
     let value = wordInput.value;
     if (currentWords.indexOf(value) > -1) {
         let i = currentWords.indexOf(value);
-        score += value.length*100;
+       
+        let wordScore = value.length * 100;
+        score += wordScore;
+        totalChars += (wordScore/100);
+        // scoreDisplay.innerHTML += wordScore;
         numMatches++;
-        scoreDisplay.innerHTML++;
         return true;
     }
 }
@@ -107,7 +127,7 @@ function handleMatch() {
     let value = wordInput.value;
     let i = currentWords.indexOf(value);
  
-    if (matchInput()) {
+    if (matchInput() && !isGameOver()) {
         const pos = activeKittens[i].kittenPos;
         isPlaying = true;
         numMatchesDisplay.innerHTML++;
@@ -137,7 +157,7 @@ function randomWord() {
 
 function randomPosition() {
     let randomPosition = Math.floor((Math.random() * 136) + 1);
-    randomPosition = 300 - randomPosition;
+    randomPosition = 315 - randomPosition;
     console.log(randomPosition);
     return [0, randomPosition];
 }
@@ -159,7 +179,8 @@ function countdown() {
 // Check game status
 
 function isGameOver() {
-    if (!isPlaying && time === 0 || lives < 1) {
+    if (time === 0 || lives < 1) {
+        isPlaying = false;
         return true;
     } else {
         return false;
@@ -167,9 +188,11 @@ function isGameOver() {
 }
 function checkStatus() {
     if (isGameOver()) {
+        
         const playerStats = {
             yourScore: score,
-            wpm: Math.floor(numMatches * 2),
+            totalChars: totalChars,
+            wpm: Math.floor((totalChars/5) / 0.5),
         };
         Object.freeze(playerStats);
         clearInterval(init);
@@ -198,6 +221,12 @@ function animate(activeKittens) {
         const currentCat = activeKittens[i];
         if (currentCat.update()) {
             i--;
+            
+            const pos = currentCat.kittenPos;
+            const flag = new Flag(pos);
+            
+            flag.drawFlag();
+            debugger
            lives--;
            livesDisplay.innerHTML--;
         }
@@ -226,8 +255,11 @@ kittenImage.onload = function () {
 
     activeKittens.push(newKitten);
     window.requestAnimationFrame((timestamp) => {
-        setInterval(releaseMoreKittens, 2000);
-        animate(activeKittens);
+        if (isPlaying) {
+            setInterval(releaseMoreKittens, releaseKittenInterval);
+            animate(activeKittens);
+        }
+      
 
 
     });

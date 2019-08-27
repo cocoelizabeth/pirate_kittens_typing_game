@@ -16,8 +16,8 @@ export default class Coin {
         this.ctx = canvas.getContext("2d");
         this.loopCount = 0;
    
-        this.sx = 0;
-        this.sy = 0;
+        this.sx = 69;
+        this.sy = 60;
         this.sw = 60;
         this.sh = 60;
       
