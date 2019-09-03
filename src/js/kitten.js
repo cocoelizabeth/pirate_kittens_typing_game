@@ -17,25 +17,19 @@ class Kitten {
 
     update(i) {
 
-        if (this.active === false) {
-            // debugger
-            // const pos = { pos: this.kittenPos };
-            // Object.freeze(pos);
-            // debugger
-            // const coin = new Coin(pos);
-            // debugger
-            // coin.animateCoin();
-            this.kittenPos[0] = 9000;
-        //    this.fly();
+        // if (this.active === false) {
+
+        //     this.kittenPos[0] = 9000;
+        // //    this.fly();
           
-            return false;
+        //     return false;
           
 
-        }
+        // }
 
-        this.kittenPos[0] += 1.5;
+        this.kittenPos[0] += 1;
     
-        if (this.kittenPos[0] > 800) {
+        if (this.kittenPos[0] > 800 || this.active === false) {
             let i = this.activeKittens.indexOf(this);
             this.activeKittens.splice(i, 1);
             this.currentWords.splice(i, 1);

@@ -11,6 +11,8 @@
     <link rel="manifest" href="/site.webmanifest">
     
     <link href="https://fonts.googleapis.com/css?family=UnifrakturCook:700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400&display=swap" rel="stylesheet">
+
     <meta charset="utf-8" />
     <title>Pirate Kittens</title>
     
@@ -21,19 +23,18 @@
     <!-- Resets -->
     <link href="./src/assets/stylesheets/reset.css" rel="stylesheet">
     <link href="./src/assets/stylesheets/typography.css" rel="stylesheet">
-
+    <link href="./src/assets/stylesheets/game_start.css" rel="stylesheet">
 
        <link href="./src/assets/stylesheets/svg_game.css" rel="stylesheet">
 
 
     <link href="./src/assets/stylesheets/display.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Aldrich|Anton|Barlow|Barlow+Semi+Condensed|Jura|Poppins|Red+Hat+Display|Work+Sans&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-
-    <header class="title"><h1>Pirate Kittens</h1></header>
+<!-- 
+    <header class="title"><h1>Pirate Kittens</h1></header> -->
  
 
     <!-- <div class="treasures">
@@ -78,7 +79,8 @@
         <!-- <img src="https://game-seeds.s3.amazonaws.com/kitten-game-background-gradient.svg" class="background" /> -->
          <!-- <img src="https://game-seeds.s3.amazonaws.com/kitten-game-background-island.svg" class="background" /> -->
       
-         <div class="gameover" style="display:none;">
+         <!-- <div class="gameover"> -->
+        <div class="gameover" style="display:none;">
             <h1 class="type-animation">Game Over</h1>
             <h2>Final Score:
                 <span id="final-score">0</span>
@@ -89,12 +91,33 @@
             <button id="play-again-button">Play Again</button>
         </div>
 
+       
+
+        <div class="game-start" style="display:flex">
+                <h1 class="game-title">Pirate Kittens</h1>
+                <h1 class="type-animation-start">typing game</h1>
+                <p class="push-space-to-start">push space bar to start</p>
+        </div>
+      
+                <!-- <h2>Final Score:
+                    <span id="final-score">0</span>
+                </h2> 
+                <h2>Words Per Minute:
+                    <span id="wpm">0</span>
+                </h2>
+                <button id="play-again-button">Start Game (or push spacebar)</button> -->
+           
+
     </div>
     
 
-        <div>
+        <!-- <div>
             <img src="https://game-seeds.s3.amazonaws.com/cheetah-edited.png" id="cheetah" class="large-cheetah-image" />
-        </div>
+        </div> -->
+
+                    <img src="https://game-seeds.s3.amazonaws.com/pirate-flag.svg" id="flag1" class="flag top="" left="" />
+                    <img src="https://game-seeds.s3.amazonaws.com/pirate-flag.svg" id="flag2" class="flag top="" left="" />
+                    <img src="https://game-seeds.s3.amazonaws.com/pirate-flag.svg" id="flag3" class="flag top="" left="" />
 
    
     <script type="text/javascript" src="./dist/bundle.js"></script>

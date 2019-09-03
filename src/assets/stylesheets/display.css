@@ -30,7 +30,7 @@ canvas {
     border-radius: 8px;
 }
 
-.user-word-input {
+/* .user-word-input {
     position: absolute;
     top: 90px;
     text-align: center;
@@ -45,7 +45,7 @@ canvas {
     font-size: 35px;
     z-index: 2;
     font-weight: 700;
-}
+} */
 
 .user-word-input::placeholder {
     color:rgb(219, 199, 223);
@@ -85,4 +85,9 @@ canvas {
     top: 400px;
     margin: 0 auto;
     
+}
+
+button {
+    padding: 1em;
+    background-color: white;
 }

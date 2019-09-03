@@ -5,21 +5,24 @@ import Flag from "./js/flag";
 
 
 
-window.addEventListener('load', init);
-window.Image
+
+
+
+// window.Image
 // Globals
 // modes
 
 let time = 30;
 let score = 0;
-let isPlaying = true;
+let isPlaying = false;
 let currentWords = [];
 let activeKittens = [];
 let flagPos = [];
 let numMatches = 0;
 let lives = 3;
-let releaseKittenInterval = 1000;
+let releaseKittenInterval = 2000;
 let totalChars = 0;
+
 
 
 
@@ -45,6 +48,11 @@ const gameOver = document.querySelector('.gameover');
 const finalScore = document.querySelector('#final-score');
 const wpm = document.querySelector('#wpm');
 const playAgainButton = document.querySelector('#play-again-button');
+const gameStart = document.querySelector('.game-start');
+const flag1 = document.querySelector('#flag1');
+const flag2 = document.querySelector('#flag2');
+const flag3 = document.querySelector('#flag3');
+
 
 
 // const c = document.getElementById('cheetah'); // DOM Manipulation (as opposed to canvas-- maybe come back to this)
@@ -61,10 +69,40 @@ const playAgainButton = document.querySelector('#play-again-button');
 
 // Logic
 
-// Initialize Game
+// window.addEventListener('load', init);
+window.addEventListener('load', startGame);
+
+
+function startGame() {
+    
+    // gameStart.style.display = "flex";
+
+
+
+   
+            window.addEventListener('keyup', function (e) {
+                if (e.keyCode === 32) {
+                    e.preventDefault();
+                    if (isPlaying === false) {
+                        gameStart.style.display = "none";
+                        isPlaying = true;
+                        wordInput.value = "";
+                        init();
+                    }
+                }
+            });
+        
+     
+    
+
+}
+
 function init() {
+    drawKitten();
     // start  matching on word input
+    // isPlaying = true;
     wordInput.addEventListener('input', handleMatch);
+
     wordInput.addEventListener('keypress', function(e) {
         if (e.keyCode === 13) {
             wordInput.value = "";
@@ -77,11 +115,36 @@ function init() {
     setInterval(checkStatus, 50);
     // setInterval(releaseMoreKittens, 2000);
     setInterval(updateScore, 400);
-    setInterval(updateReleaseKittenInterval, 10000);
+    setInterval(updateReleaseKittenInterval, 500);
+
+function drawKitten () {
+        
+        const word = randomWord(words);
+        const newKitten = new Kitten([0, 200], word, kittenImage, activeKittens, currentWords, ctx);
+
+        activeKittens.push(newKitten);
+        
+        window.requestAnimationFrame((timestamp) => {
+     
+            if (isPlaying) {
+ 
+
+                
+                setInterval(releaseMoreKittens, releaseKittenInterval);
+                animate(activeKittens);
+                
+            }
+
+
+
+        });
+    }
+
  
 }
 
 function releaseMoreKittens() {
+    
     if (isPlaying) {
         const word = randomWord();
         const pos = randomPosition();
@@ -90,12 +153,10 @@ function releaseMoreKittens() {
 
     }
 
-    // window.requestAnimationFrame(() => animate(newKitten))
-    // window.requestAnimationFrame(() => animate(newKitten));
-
 }
 
 function updateScore() {
+    
     if (!isGameOver())  {
         // score++;
         scoreDisplay.innerHTML = score;
@@ -104,12 +165,15 @@ function updateScore() {
 }
 
 function updateReleaseKittenInterval() {
-    this.releaseKittenInterval +=10;
+    
+    this.releaseKittenInterval -=200;
+    
 }
 
 
 
 function matchInput() {
+    
     let value = wordInput.value;
     if (currentWords.indexOf(value) > -1) {
         let i = currentWords.indexOf(value);
@@ -126,12 +190,13 @@ function matchInput() {
 function handleMatch() {
     let value = wordInput.value;
     let i = currentWords.indexOf(value);
- 
     if (matchInput() && !isGameOver()) {
         const pos = activeKittens[i].kittenPos;
-        isPlaying = true;
+        // isPlaying = true;
         numMatchesDisplay.innerHTML++;
+   
         const coin = new Coin(pos);
+    
         coin.animateCoin();
         activeKittens[i].active = false;
         activeKittens[i].update(i);
@@ -151,14 +216,16 @@ function randomWord() {
     currentWords.push(word);
     // Output a randomword
     return word;
+    
 
 }
 
 
 function randomPosition() {
+    
     let randomPosition = Math.floor((Math.random() * 136) + 1);
     randomPosition = 315 - randomPosition;
-    console.log(randomPosition);
+    // console.log(randomPosition);
     return [0, randomPosition];
 }
 
@@ -180,15 +247,16 @@ function countdown() {
 
 function isGameOver() {
     if (time === 0 || lives < 1) {
-        isPlaying = false;
+        // isPlaying = false;
         return true;
     } else {
         return false;
     }
 }
 function checkStatus() {
-    if (isGameOver()) {
+    if (isGameOver() && isPlaying) {
         
+        isPlaying = false;
         const playerStats = {
             yourScore: score,
             totalChars: totalChars,
@@ -207,30 +275,76 @@ function checkStatus() {
             location.reload();
         });
 
+   
+        document.addEventListener('keyup', function(e){
+            if (e.keyCode === 32) {
+                window.location.reload();
+            }
+        });
+
 
         // score = 0;
         // scoreDisplay.innerHTML = 0;
     }
 }
 
+// updateFlag(lives, pos, left, top) {
+
+// }
 
 function animate(activeKittens) {
     ctx.clearRect(0, 0, 1024, 450);
-
+    
     for (let i = 0; i < activeKittens.length; i++) {
         const currentCat = activeKittens[i];
+        
         if (currentCat.update()) {
             i--;
-            
+           
+            livesDisplay.innerHTML--;
             const pos = currentCat.kittenPos;
-            const flag = new Flag(pos);
+            const left = pos[0] + 130;
+            const top = pos[1];
+
+
+            if (lives === 3) {
+                flag1.style.left = `${left}` + "px";
+                flag1.style.top = `${top + "px"}`;
+                flag1.style.display = "inline";
+            } else if (lives === 2) {
+                flag2.style.left = `${left}` + "px";
+                flag2.style.top = `${top + "px"}`;
+                flag2.style.display = "inline";
+            } else if (lives===1) {
+                flag3.style.left = `${left}` + "px";
+                flag3.style.top = `${top + "px"}`;
+                flag3.style.display = "inline";
+            }
             
-            flag.drawFlag();
-            debugger
-           lives--;
-           livesDisplay.innerHTML--;
+            lives--;
+            // const flag = new Flag(pos, ctx);
+            // flag.draw();
+            // debugger
+            // const coin = new Coin(pos);
+            // coin.animateCoin();
+           
+            // flag.style.display="inline";
+            // flag.style.cy = `${pos[1] - 138}`;
+            // flag.style.cx =`${pos[0] - 130}`;
+            
+           
+            
+          
+           
+            // flag.style.left=`${left}`+"px";
+            // flag.style.top =`${top + "px"}`;
+            // flag.style.display = "inline";
+            
+     
+
         }
         currentCat.draw(ctx);
+        
     }
 
 
@@ -249,21 +363,23 @@ function animate(activeKittens) {
     // }
 
 }
-kittenImage.onload = function () {
-    const word = randomWord(words);
-    const newKitten = new Kitten([0, 200], word, kittenImage, activeKittens, currentWords, ctx);
+// kittenImage.onload = function () {
+//     debugger
+//     const word = randomWord(words);
+//     const newKitten = new Kitten([0, 200], word, kittenImage, activeKittens, currentWords, ctx);
 
-    activeKittens.push(newKitten);
-    window.requestAnimationFrame((timestamp) => {
-        if (isPlaying) {
-            setInterval(releaseMoreKittens, releaseKittenInterval);
-            animate(activeKittens);
-        }
+//     activeKittens.push(newKitten);
+//     window.requestAnimationFrame((timestamp) => {
+//         debugger
+//         if (isPlaying) {
+//             setInterval(releaseMoreKittens, releaseKittenInterval);
+//             animate(activeKittens);
+//         }
       
 
 
-    });
-}
+//     });
+// }
 
 
 // OLD CODE /////////

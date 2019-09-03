@@ -5,6 +5,7 @@ export default class Coin {
        this.pos = kittenPos;
        this.animateCoin = this.animateCoin.bind(this);
        this.draw = this.draw.bind(this);
+       this.stopAnimation = false;
     //    this.stopAnimation = this.stopAnimation.bind(this)
     //    this.canvas = canvas;
     //    this.ctx = ctx;
@@ -35,6 +36,9 @@ export default class Coin {
     } 
 
     draw() {
+        if (this.stopAnimation) {
+            return;
+        }
         this.sx += this.dw;
         
 
@@ -69,9 +73,10 @@ export default class Coin {
     }
 
     checkLoop() {
-        if (this.loopCount > 2) {
+        if (this.loopCount > 3) {
+            this.stopAnimation = true;
             // this.dx -= 10;
-            this.dy -= 50;
+            // this.dy -= 50;
           
         };
   

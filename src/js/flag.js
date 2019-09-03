@@ -1,39 +1,50 @@
 export default class Flag {
 
-    constructor(kittenPos) {
+    constructor(kittenPos, ctx) {
         this.pos = kittenPos;
         this.animateFlag = this.animateFlag.bind(this);
         this.draw = this.draw.bind(this);
+        this.ctx = ctx;
    
         this.img = new Image();
         this.img.src = "https://game-seeds.s3.amazonaws.com/1-treasure.png";
 
-        const canvas = document.getElementById("canvas");
-        this.ctx = canvas.getContext("2d");
+        // this.img.onload = function () {
+        //     debugger
+        //     this.ctx.drawImage(this.img, this.pos[0], this.pos[1]);
+        // };
+        
+        // const canvas = document.getElementById("canvas");
+     
         // this.loopCount = 0;
 
-        // this.sx = 69;
-        // this.sy = 130;
-        // this.sw = 0;
-        // this.sh = 0;
+        this.sx = 69;
+        this.sy = 130;
+        this.sw = 0;
+        this.sh = 0;
 
-        // this.dx = this.pos[0];
-        // this.dy = this.pos[1];
+        this.dx = this.pos[0];
+        this.dy = this.pos[1];
 
-        // this.dw = 100;
-        // this.dh = 100;
-        // this.draw();
+        this.dw = 100;
+        this.dh = 100;
+        
+        this.drawFlag();
 
     }
 
     drawFlag() {
-        debugger
+        
         this.flag = this.ctx.drawImage(this.img, this.sx, this.sy, this.sw, this.sh, this.dx, this.dy, this.dw, this.dh);
+             this.test = requestAnimationFrame(this.draw);
+        debugger
     }
 
     draw() {
-        this.ctx.drawImage(this.img, ...this.pos)
         debugger
+        // this.ctx.drawImage(this.img, this.pos[0], this.pos[1]);
+        // this.ctx.drawImage(this.img, ...this.pos)
+        // debugger
         // this.sx += this.dw;
 
 
@@ -42,8 +53,8 @@ export default class Flag {
 
         // // }
 
-        // this.drawFlag();
-        // this.test = requestAnimationFrame(this.draw);
+        this.drawFlag();
+        this.test = requestAnimationFrame(this.draw);
 
         //  ctx.font = "16px Anton, sans-serif";
         // ctx.font = "16px Jura, sans-serif";
