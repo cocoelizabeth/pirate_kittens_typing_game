@@ -24,7 +24,7 @@
     <link href="./src/assets/stylesheets/reset.css" rel="stylesheet">
     <link href="./src/assets/stylesheets/typography.css" rel="stylesheet">
     <link href="./src/assets/stylesheets/game_start.css" rel="stylesheet">
-
+<link href="./src/assets/stylesheets/modal.css" rel="stylesheet">
        <link href="./src/assets/stylesheets/svg_game.css" rel="stylesheet">
 
 
@@ -33,6 +33,8 @@
 </head>
 
 <body>
+
+    
 <!-- 
     <header class="title"><h1>Pirate Kittens</h1></header> -->
  
@@ -41,7 +43,22 @@
         <img src="https://game-seeds.s3.amazonaws.com/1-treasure.png" />
     </div> -->
 
+   
     
+    <div class='modal' id='modal'>
+        <div class='modal-content'>
+            <span class="close">&times;</span>
+            <h1 class='title'>How to Play</h1>
+            <h2 class="rule-header">Don't let the pirate kittens take over your island!</h2>
+            <ul>
+             <li>Type the words on the pirate ships to collect coins and protect the island</li>
+             <li>The longer the word, the higher your the score</li>
+            <li>If a pirate kitten reaches the island, it will place a flag and you will lose a life</li>
+            <li>The game ends when you lose all three lives or the time runs out</li>
+            <li>Push <b>ENTER</b> to clear your entire input</li>
+            </ul>
+        </div>
+    </div>
 
     <div class="game-message-container">
         <span id=message class="message"></span>
@@ -96,6 +113,7 @@
         <div class="game-start" style="display:flex">
                 <h1 class="game-title">Pirate Kittens</h1>
                 <h1 class="type-animation-start">typing game</h1>
+                <button class="btn" id="btn">How to Play</button>
                 <p class="push-space-to-start">push space bar to start</p>
         </div>
       

@@ -2,6 +2,7 @@ import Kitten from "./js/kitten";
 import words from "./js/words";
 import Coin from "./js/coin";
 import Flag from "./js/flag";
+// import Modal from "./js/modal";
 
 
 
@@ -22,7 +23,6 @@ let numMatches = 0;
 let lives = 3;
 let releaseKittenInterval = 2000;
 let totalChars = 0;
-
 
 
 
@@ -67,14 +67,39 @@ const flag3 = document.querySelector('#flag3');
 // const currentMode = mode.words;
 
 
+// MODAL
+
+
+
+const modal = document.getElementById("modal");
+const btn = document.getElementById("btn");
+const span = document.getElementsByClassName("close")[0];
+
+
+btn.onclick = function () {
+    modal.style.display = "flex";
+};
+
+span.onclick = function () {
+    modal.style.display = "none";
+};
+
+window.onclick = function (e) {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+}
+
+ window.addEventListener('load', startGame);
+
 // Logic
 
 // window.addEventListener('load', init);
-window.addEventListener('load', startGame);
+
 
 
 function startGame() {
-    
+    debugger
     // gameStart.style.display = "flex";
 
 
@@ -118,6 +143,9 @@ function init() {
     setInterval(updateScore, 400);
     setInterval(updateReleaseKittenInterval, 500);
 
+    };
+
+
 function drawKitten () {
         
         const word = randomWord(words);
@@ -142,7 +170,7 @@ function drawKitten () {
     }
 
  
-}
+
 
 function releaseMoreKittens() {
     

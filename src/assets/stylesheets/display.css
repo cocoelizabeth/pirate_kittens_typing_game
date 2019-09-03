@@ -2,10 +2,10 @@ header {
     width: 100%;
 }
 
-.title {
+/* .title {
     background-color: #473449;
     color: white;
-}
+} */
 .game-message-container {
     text-align: center;
     height: 50px;
@@ -20,6 +20,9 @@ header {
    position: relative;
    display: flex;
    justify-content: center;
+   align-content: center;
+   margin: 0 auto;
+
 }
 
 
