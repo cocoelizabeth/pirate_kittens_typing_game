@@ -55,7 +55,7 @@ class Kitten {
     draw(ctx) {
         // debugger
         ctx.drawImage(this.kittenImage, ...this.kittenPos);
-        ctx.font = "14px Poppins, sans-serif";
+        ctx.font = "13px Poppins, sans-serif";
         //  ctx.font = "16px Anton, sans-serif";
         // ctx.font = "16px Jura, sans-serif";
         // ctx.font-family ="UnifrakturCook, sans-serif";

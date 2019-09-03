@@ -38,6 +38,17 @@ h1 {
     blink-caret .5s step-end infinite alternate;
 }
 
+h1.type-animation {
+    font-size: 6.5em;
+    color:white;
+    border-right: .1em solid white;
+    text-shadow: 2px 2px 3px purple;
+    
+ 
+}
+
+
+
 .type-animation-start{
     border-right: .08em solid #333;
     width: 5.5em;
@@ -79,6 +90,14 @@ h1 {
     /* cx: "1000"; */
 }
 
+.gameover h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5em;
+    padding: .3em;
+    color: white;
+}
+
+
 
 .user-word-input,
 .push-space-to-start {
@@ -98,7 +117,7 @@ h1 {
 }
 
 .user-word-input {
-    top: 90px;
+    top: 70px;
 }
 
 .push-space-to-start {
@@ -121,4 +140,33 @@ h1 {
         transform: translateX(-800px)
     }
 }
-    
+
+button {
+    font-family: Poppins, sans-serif;
+    padding: 1em;
+    background-color: white;
+    border-radius: 8px;
+    /* transform: translate(-50%,-80%); */
+    color: #e8e8e8;
+    outline: none;
+    /* border: 3px solid white; */
+     font-size: 1.05vw;
+     background: linear-gradient(45deg,#d350db,teal,#d350db);
+    background-size: 400% 400%;
+    /* box-shadow: .9vw .8vw 0 white; */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+  
+}
+
+button:hover {
+    animation: gradient 10s ease infinite;
+    font-size: 2.05vw;
+    /* box-shadow: 0.2vw 0.2vw 0 white; */
+        border: 3px solid white;
+}
+@keyframes gradient {
+  50% {
+    background-position: 100% 0;
+  }

@@ -11,8 +11,8 @@ import Flag from "./js/flag";
 // window.Image
 // Globals
 // modes
-
-let time = 30;
+let startTime = 15;
+let time = 15;
 let score = 0;
 let isPlaying = false;
 let currentWords = [];
@@ -101,6 +101,7 @@ function init() {
     drawKitten();
     // start  matching on word input
     // isPlaying = true;
+    wordInput.focus();
     wordInput.addEventListener('input', handleMatch);
 
     wordInput.addEventListener('keypress', function(e) {
@@ -260,8 +261,11 @@ function checkStatus() {
         const playerStats = {
             yourScore: score,
             totalChars: totalChars,
-            wpm: Math.floor((totalChars/5) / 0.5),
+            min: time/60,
+            
+            wpm: Math.floor((totalChars/5) / ((startTime-time)/60)),
         };
+        debugger
         Object.freeze(playerStats);
         clearInterval(init);
 
