@@ -11,8 +11,8 @@ import Flag from "./js/flag";
 // window.Image
 // Globals
 // modes
-let startTime = 15;
-let time = 15;
+let startTime = 30;
+let time = 30;
 let score = 0;
 let isPlaying = false;
 let currentWords = [];
