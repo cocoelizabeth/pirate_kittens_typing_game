@@ -307,7 +307,7 @@ function animate(activeKittens) {
            
             livesDisplay.innerHTML--;
             const pos = currentCat.kittenPos;
-            const left = pos[0] + 130;
+            const left = pos[0] + 260;
             const top = pos[1];
 
 
