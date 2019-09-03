@@ -270,7 +270,7 @@ function checkStatus() {
         finalScore.innerHTML = playerStats.yourScore;
 
         wpm.innerHTML = playerStats.wpm;
-        message.innerHTML = 'Game Over!';
+        // message.innerHTML = 'Game Over!';
         playAgainButton.addEventListener('click', ()=> {
             location.reload();
         });
