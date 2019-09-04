@@ -43,11 +43,14 @@
 #btn {
  /* position: absolute; */
  font-size: 13px;
+ font-weight: 900;
+ /* border-radius:8px; */
+ /* padding:20px; */
 margin-top: 0px;
  /* float: right; */
  z-index: 101;
  /* margin: 40px; */
- color: teal;
+ /* color: teal; */
     transition: 0.35s ease-in-out;
  /* background: white;
  color: pink;
@@ -61,7 +64,8 @@ margin-top: 0px;
     /* background: linear-gradient(45deg,#d350db,teal,#d350db);  */
     opacity: 1;
     /* color: teal; */
-    color: white;
+    color: purple;
+    
 }
 
 

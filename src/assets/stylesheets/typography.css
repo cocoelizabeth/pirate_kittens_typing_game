@@ -155,21 +155,22 @@ h1.type-animation {
 
 button {
     font-family: Poppins, sans-serif;
-    padding: 1em;
+    padding: 12px 20px;
     background-color: white;
     border-radius: 8px;
     /* background-image: linear-gradient( 107.7deg,  rgba(101,168,143,1) -30.7%, rgba(144,220,193,1) 7.2%, rgba(225,203,150,1) 31.3%, rgba(251,166,150,1) 82.6%, rgba(250,54,65,1) 128.5% ); */
     /* transform: translate(-50%,-80%); */
     color: #333;
+    color: purple;
     outline: none;
     /* border: 3px solid white; */
-     font-size: 1.05vw;
+     /* font-size: 1.05vw; */
    
     background-size: 400% 400%;
     /* box-shadow: .9vw .8vw 0 white; */
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     /* display: flex;
     align-content: center;
     justify-content: center;
@@ -180,9 +181,10 @@ button {
 
 button:hover{
     background-image: linear-gradient( 107.7deg,  rgba(101,168,143,1) -30.7%, rgba(144,220,193,1) 7.2%, rgba(225,203,150,1) 31.3%, rgba(251,166,150,1) 82.6%, rgba(250,54,65,1) 128.5% );
+    background-image: linear-gradient( 107.7deg, white -30.7%, #efefef 7.2%,white 31.3%, lightgrey 82.6%, grey 128.5% );
 
     animation: gradient 10s ease infinite;
-    font-size: 2.05vw;
+    /* font-size: 2.05vw; */
 
     /* box-shadow: 0.2vw 0.2vw 0 white; */
         border: 3px solid white;
