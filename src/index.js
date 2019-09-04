@@ -283,6 +283,8 @@ function isGameOver() {
     }
 }
 function checkStatus() {
+        message.innerHTML = 'Pirate Kittens';
+
     if (isGameOver() && isPlaying) {
         
         isPlaying = false;
