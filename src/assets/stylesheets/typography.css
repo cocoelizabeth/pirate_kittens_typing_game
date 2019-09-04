@@ -30,6 +30,13 @@ h1 {
 
 .message {
    color: #333;
+    font-size: 2em;
+    width: fit-content;
+    height: fit-content;
+    padding: 30px;
+    margin: 30px;
+    /* position: fixed; */
+    top: 25px;
 }
 
 .type-animation {
