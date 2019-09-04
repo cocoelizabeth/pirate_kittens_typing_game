@@ -25,16 +25,18 @@
 <!-- STYLESHEETS -->
     <!-- Resets -->
         <link href="./src/assets/stylesheets/fontawesome-all.min.css" rel="stylesheet">
+    <link href="./src/assets/stylesheets/game.css" rel="stylesheet">
 
     <link href="./src/assets/stylesheets/reset.css" rel="stylesheet">
     <link href="./src/assets/stylesheets/splash.css" rel="stylesheet">
     <link href="./src/assets/stylesheets/typography.css" rel="stylesheet">
-    <link href="./src/assets/stylesheets/game_start.css" rel="stylesheet">
-<link href="./src/assets/stylesheets/modal.css" rel="stylesheet">
-       <link href="./src/assets/stylesheets/svg_game.css" rel="stylesheet">
+    <link href="./src/assets/stylesheets/main-menu.css" rel="stylesheet">
+    <!-- <link href="./src/assets/stylesheets/game_start.css" rel="stylesheet"> -->
+    <link href="./src/assets/stylesheets/modal.css" rel="stylesheet">
+    <!-- <link href="./src/assets/stylesheets/svg_game.css" rel="stylesheet">
 
 
-    <link href="./src/assets/stylesheets/display.css" rel="stylesheet">
+    <link href="./src/assets/stylesheets/display.css" rel="stylesheet"> -->
 
 </head>
 
@@ -133,35 +135,39 @@
         <span id=message class="message"></span>
     </div>
     <div class="game">
+
+         <img src=" https://game-seeds.s3.amazonaws.com/1024-background.png" class="background" />
+         <div class="game-header">
+
+            <div class="time-and-score-container">
+                
+                    <div class="stats" ;>Coins:
+                        <span id="numMatches">0</span>
+                    </div>
+                    <div class="stats">Lives:
+                        <span id="lives">3</span>
+                    </div>
+                    <div class="stats" ;>Time:
+                        <span id="time">30</span>
+                    </div>
+                    <div class="stats" ;>Score:
+                        <span id="score">0</span>
+                    </div>
+                </div>
+                <input type="text" id="word-input" class="user-word-input" placeholder="Start typing..." autofocus />
+        <g class=birds>
+            <div class="bird"></div>
+        </g>
+            </div>
+
         <canvas id="canvas" width="1024" height="450"></canvas>
-        <input type="text" 
-                id="word-input"
-                class="user-word-input"
-                placeholder="Start typing..."
-                autofocus/>
-        <div class="time-and-score-container">
-            
-            <div class="stats";>Coins:
-                <span id="numMatches">0</span>
-            </div>
-            <div class="stats">Lives:
-                <span id="lives">3</span>
-            </div>
-            <div class="stats";>Time:
-                <span id="time">30</span>
-            </div>
-            <div class="stats";>Score:
-                <span id="score">0</span>
-            </div>
-           
-        </div>
+
+                
+
 
          <!-- <img src="https://game-seeds.s3.amazonaws.com/svg+overlay.svg" class="svg-trees" /> -->
-         <g class=birds>
-             <div class="bird"></div>
-         </g>
+
    
-        <img src=" https://game-seeds.s3.amazonaws.com/1024-background.png" class="background" />
         <!-- <img src="https://game-seeds.s3.amazonaws.com/kitten-game-background-gradient.svg" class="background" /> -->
          <!-- <img src="https://game-seeds.s3.amazonaws.com/kitten-game-background-island.svg" class="background" /> -->
       
@@ -207,9 +213,9 @@
             <img src="https://game-seeds.s3.amazonaws.com/cheetah-edited.png" id="cheetah" class="large-cheetah-image" />
         </div> -->
 
-                    <img src="https://game-seeds.s3.amazonaws.com/pirate-flag.svg" id="flag1" class="flag top="" left="" />
-                    <img src="https://game-seeds.s3.amazonaws.com/pirate-flag.svg" id="flag2" class="flag top="" left="" />
-                    <img src="https://game-seeds.s3.amazonaws.com/pirate-flag.svg" id="flag3" class="flag top="" left="" />
+                    <img src="https://game-seeds.s3.amazonaws.com/pirate-flag.svg" id="flag1" class="flag"/>
+                    <img src="https://game-seeds.s3.amazonaws.com/pirate-flag.svg" id="flag2" class="flag"/>
+                    <img src="https://game-seeds.s3.amazonaws.com/pirate-flag.svg" id="flag3" class="flag" />
 
    
     <script type="text/javascript" src="./dist/bundle.js"></script>

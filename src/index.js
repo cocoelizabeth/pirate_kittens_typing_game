@@ -101,7 +101,7 @@ window.onclick = function (e) {
 
 
 function startGame() {
-    debugger
+    
     // gameStart.style.display = "flex";
 
 
@@ -297,7 +297,7 @@ function checkStatus() {
             
             wpm: Math.floor((totalChars/5) / ((startTime-time)/60)),
         };
-        debugger
+        
         Object.freeze(playerStats);
         clearInterval(init);
 
@@ -339,9 +339,14 @@ function animate(activeKittens) {
            
             livesDisplay.innerHTML--;
             const pos = currentCat.kittenPos;
-            const left = pos[0] + 130;
-            const top = pos[1] + 60;
+          
+            const rect = canvas.getBoundingClientRect();
+            // const left = pos[0] + 150;
+            const left = rect.right - 160;
+            // const top = rect.bottom - pos[1];
+            const top = rect.top +pos[1];
 
+            // debugger
 
             if (lives === 3) {
                 flag1.style.left = `${left}` + "px";
@@ -355,9 +360,16 @@ function animate(activeKittens) {
                 flag3.style.left = `${left}` + "px";
                 flag3.style.top = `${top + "px"}`;
                 flag3.style.display = "inline";
+            } 
+            lives--;
+
+            if (lives===0) {
+                flag1.style.display="none";
+                flag2.style.display = "none";
+                flag3.style.display = "none";
             }
             
-            lives--;
+  
             // const flag = new Flag(pos, ctx);
             // flag.draw();
             // debugger

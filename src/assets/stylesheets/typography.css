@@ -28,19 +28,36 @@ h1 {
 
 }
 
+
+.game-message-container {
+    display: flex;
+    justify-content: center;
+
+}
 .message {
    color: #333;
+   /* text-shadow: -8px 9px purple; */
     font-size: 2em;
-    width: fit-content;
-    height: fit-content;
+    width: 100%;
     padding: 30px;
-    margin: 30px;
+    margin-bottom: auto;
     /* position: fixed; */
     top: 25px;
+    text-align: center;
+    font-size: 5em;
+    color: #333;
+    font-family: 'UnifrakturCook', cursive;
+    /* transition-timing-function: ease-in;
+     transition: 10s;
+      transform: translateY(0); */
+
+  /* Quick on the way out */
+ 
+
 }
 
 .type-animation {
-    border-right: .1em solid black;
+    border-right: .08em solid #333;
     width: 5.5em;
     margin: 0 auto;
     overflow: hidden;
@@ -80,27 +97,6 @@ h1.type-animation {
     text-shadow: 2px 2px purple;
 }
 
-.birds {
-    position: absolute;
-    animation: fly-across 4s steps(40) infinite;
-    will-change: transform, opacity;
-    display: flex;
-    justify-content: flex-end;
-    width: 800px;
-    /* z-index: 110; */
-    /* top: -30px; */
-
-}
-
-.bird {
-    width: 128px;
-    height: 128px;
-    background: url(https://game-seeds.s3.amazonaws.com/birds.svg) left center;
-    animation: play 0.8s steps(5) infinite;
-    position: absolute;
-    
-    /* cx: "1000"; */
-}
 
 .gameover h2 {
     font-family: 'Poppins', sans-serif;
@@ -113,7 +109,7 @@ h1.type-animation {
 
 .user-word-input,
 .push-space-to-start {
-    position: absolute;
+    position: relative;
     text-align: center;
     padding:15px;
     background-color: transparent;
@@ -129,11 +125,18 @@ h1.type-animation {
 }
 
 .user-word-input {
-    top: 70px;
+    margin: 20px auto;
+    position: relative;
+
 }
 
+.user-word-input::placeholder {
+    color:rgb(219, 199, 223);
+}
+
+
 .push-space-to-start {
-   bottom: 1em;
+   margin-top: 120px;
 }
 
 @keyframes play {
@@ -193,3 +196,53 @@ button:hover{
   50% {
     background-position: 100% 0;
   }
+}
+
+.game-header{
+    width: 1024px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* position: relative; */
+    /* align-content: flex-start;
+    align-items: flex-start; */
+}
+
+  .time-and-score-container {
+    display: flex;
+   
+    width:90%;
+    /* height: 480px; */
+    margin: 0 auto;
+    top:20px;
+    font-family: 'UnifrakturCook', sans-serif;
+    font-size: 35px;
+    color:white;
+    text-shadow: 2px 2px purple;
+    z-index: 5;
+    position: relative;
+    justify-content: space-between;
+    align-content: flex-start;
+    /* margin-top: 50%; */
+   
+}
+
+.stats {
+    min-width: 25%;
+    margin: 0 auto;
+    text-align: center;
+}
+/* 
+.time-and-score-container {
+    width: 1000px;
+    margin: -30px auto;
+    display: flex;
+    align-content: flex-end;
+    justify-content: flex-end;
+    align-items:flex-end;
+    position: relative;
+    position: absolute;
+    z-index: 1000;
+    margin-top: 0px;
+} */

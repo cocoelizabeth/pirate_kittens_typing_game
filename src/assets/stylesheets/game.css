@@ -1,0 +1,59 @@
+
+
+.flag {
+    position: absolute;
+    /* left: 1200px;
+    top: 200px; */
+    width: 10em;
+    z-index: 50;
+    display: none;
+}
+
+/* .user-word-input::placeholder {
+    color:rgb(219, 199, 223);
+} */
+
+/* .time-and-score-container {
+    display: flex;
+    justify-content: space-between;
+    width:1000px;
+    position: absolute;
+    top:20px;
+    font-family: 'UnifrakturCook', sans-serif;
+    font-size: 35px;
+    color:white;
+    text-shadow: 2px 2px purple;
+    z-index: 5;
+} */
+
+/* .stats {
+    min-width: 25%;
+    margin: 0 auto;
+    text-align: center;
+} */
+
+.large-cheetah-image {
+    /* add styling here */
+}
+
+.birds {
+    position: absolute;
+    animation: fly-across 4s steps(40) infinite;
+    will-change: transform, opacity;
+    display: flex;
+    justify-content: flex-end;
+    width: 800px;
+    /* z-index: 110; */
+    /* top: -30px; */
+
+}
+
+.bird {
+    width: 128px;
+    height: 128px;
+    background: url(https://game-seeds.s3.amazonaws.com/birds.svg) left center;
+    animation: play 0.8s steps(5) infinite;
+    position: absolute;
+    
+    /* cx: "1000"; */
+}
