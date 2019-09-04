@@ -76,6 +76,10 @@ const btn = document.getElementById("btn");
 const span = document.getElementsByClassName("close")[0];
 
 
+
+
+ window.addEventListener('load', startGame);
+
 btn.onclick = function () {
     modal.style.display = "flex";
 };
@@ -89,8 +93,6 @@ window.onclick = function (e) {
         modal.style.display = "none";
     }
 }
-
- window.addEventListener('load', startGame);
 
 // Logic
 
