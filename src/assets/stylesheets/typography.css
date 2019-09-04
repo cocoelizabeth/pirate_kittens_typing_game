@@ -37,14 +37,15 @@ h1 {
 .message {
    color: #333;
    /* text-shadow: -8px 9px purple; */
-    font-size: 2em;
+    /* font-size: 2em; */
     width: 100%;
-    padding: 30px;
-    margin-bottom: auto;
+    margin: auto;
+    /* padding: 30px; */
+    /* margin-bottom: 20px; */
     /* position: fixed; */
-    top: 25px;
+    /* margin-top: 25px; */
     text-align: center;
-    font-size: 5em;
+    font-size: 4em;
     color: #333;
     font-family: 'UnifrakturCook', cursive;
     /* transition-timing-function: ease-in;
