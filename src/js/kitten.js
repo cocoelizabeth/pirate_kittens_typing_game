@@ -27,7 +27,7 @@ class Kitten {
 
         // }
 
-        this.kittenPos[0] += 1;
+        this.kittenPos[0] += 1.5;
     
         if (this.kittenPos[0] > 800 || this.active === false) {
             let i = this.activeKittens.indexOf(this);
