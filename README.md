@@ -1,4 +1,4 @@
-# Pirate Kittens Typing Game
+![Logo](src/assets/img/logo.jpg)
 
 ## [LIVE](https://cocoelizabeth.github.io/pirate_kittens_typing_game/)
 
