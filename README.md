@@ -32,7 +32,10 @@ The kitten graphics are inspired by Lisa Frank.
 ### `Webpack` 
 * Bundle various scripts into a single source
 
-### Words API
+### `Custom Graphics`
+* Custom vector graphics designed in Adobe Illustrator and Photoshop
+
+### `Words API`
 * A words API to generate random words (future implementation)
 
 ### File Structure:
