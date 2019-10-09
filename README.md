@@ -1,17 +1,23 @@
-# Pirate Kittens Typing Game
+![Logo](src/assets/img/logo.jpg)
+
+## [LIVE](https://cocoelizabeth.github.io/pirate_kittens_typing_game/)
 
 ## Background and Overview
-Pirate Kittens Typing Game is an animated JavaScript Typing Game with a pastel rainbow aesthetic. Pirate kittens will sail in from the left side of the screen while the player defends him/her treasure from the right by correctly typing the words that appear in the water. As the words are typed correctly, waves will slow the kittens down. Eventually, more and more pirate kittens will enter the screen, forcing the player to type faster and faster to keep them at bay. The game is over when the kittens reach the treasure.
+Pirate Kittens Typing Game is an animated JavaScript Typing Game with a vibrant rainbow aesthetic. Pirate kittens will sail in from the left side of the screen while the player defends him/her treasure from the right by correctly typing the words that appear on their boats. If a kitten's word is typed correctly, the kitten turns into a coin that the player will collect.  Eventually, more and more pirate kittens will enter the screen, forcing the player to type faster and faster to keep them at bay. If a kitten reaches the shore of the island, they put down a pirate flag and the player loses a life. There are two scenarios that will cause game over:
+* All lives are lost (3 kittens reach the shore)
+* Time runs out
 
-The graphics are inspired by Lisa Frank animals but will have a more pastel tone.
+![Screenshot](https://raw.githubusercontent.com/cocoelizabeth/pirate_kittens_typing_game/master/pirate-kittens-screen-shot.png)
 
-![Image of Lisa Frank Kitten](https://www.cardlike.com/sites/cardlike.com/files/card_art/Card-Lisa-Frank-22.jpg)
+The kitten graphics are inspired by Lisa Frank.
+
+![Screenshot](https://www.cardlike.com/sites/cardlike.com/files/card_art/Card-Lisa-Frank-22.jpg)
 
 ## Functionality and MVP Features
 * Players will see pirate kittens sail in from the left
-* Players will be able to type words to create waves and slow the kittens down
-* The game ends when the pirate kittens reach the player's treature
-* Pirate kittens sould continuously sail in until they reach the treasure 
+* Players will be able to type words stop kittens from reaching the shore and collect coins
+* The game ends when 3 kittens reach the shore or time runs out
+* Pirate kittens sould continuously sail in until they reach the shore 
 
 
 ## Technologies and Architecture
@@ -21,24 +27,25 @@ The graphics are inspired by Lisa Frank animals but will have a more pastel tone
 
 ### `HTML5 Canvas`
 * DOM manipulation
-* Rendering animation
-* `Paper.js`: a library built on top of canvas that might be able to handle the  wave effects
+* Rendering animations & sprites
 
 ### `Webpack` 
 * Bundle various scripts into a single source
 
-### Words API
-* A words API to generate random words
+### `Custom Graphics`
+* Custom vector graphics designed in Adobe Illustrator and Photoshop
+
+### `Words API`
+* A words API to generate random words (future implementation)
 
 ### File Structure:
 * Webpack entry file
 * `index.html`: renders the canvas;
 * `index.js`: entry file, main structure of the canvas and the center game logic;
-* `board.js`: renders the tropical ocean background;
-* `waves.js`: handles the wave animation
-* `player.js`: 
-* `kittens.js`: recieves input from typing and handles reaction;
-* `scoreboard.js`: fetches score & time and displays them on screen
+* `coin.js`: handles coin animation;
+* `modal.js`: renders the rules modal;
+* `flag.js`: handles flag animation when kitten reaches the shore;
+* `kitten.js`: handles kitten animation and reaction to user typing input; 
 
 
 
