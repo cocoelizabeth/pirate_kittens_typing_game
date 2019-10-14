@@ -28,7 +28,6 @@ h1 {
 
 }
 
-
 .game-message-container {
     display: flex;
     justify-content: center;
@@ -36,25 +35,12 @@ h1 {
 }
 .message {
    color: #333;
-   /* text-shadow: -8px 9px purple; */
-    /* font-size: 2em; */
-    width: 100%;
-    margin: auto;
-    /* padding: 30px; */
-    /* margin-bottom: 20px; */
-    /* position: fixed; */
-    /* margin-top: 25px; */
-    text-align: center;
-    font-size: 4em;
-    color: #333;
-    font-family: 'UnifrakturCook', cursive;
-    /* transition-timing-function: ease-in;
-     transition: 10s;
-      transform: translateY(0); */
-
-  /* Quick on the way out */
- 
-
+   width: 100%;
+   margin: auto;
+   text-align: center;
+   font-size: 4em;
+   color: #333;
+   font-family: 'UnifrakturCook', cursive;
 }
 
 .type-animation {
@@ -73,11 +59,7 @@ h1.type-animation {
     color:white;
     border-right: .1em solid white;
     text-shadow: 2px 2px 3px purple;
-    
- 
 }
-
-
 
 .type-animation-start{
     border-right: .08em solid #333;
@@ -98,15 +80,12 @@ h1.type-animation {
     text-shadow: 2px 2px purple;
 }
 
-
 .gameover h2 {
     font-family: 'Poppins', sans-serif;
     font-size: 1.5em;
     padding: .3em;
     color: white;
 }
-
-
 
 .user-word-input,
 .push-space-to-start {
@@ -162,37 +141,21 @@ button {
     padding: 12px 20px;
     background-color: white;
     border-radius: 8px;
-    /* background-image: linear-gradient( 107.7deg,  rgba(101,168,143,1) -30.7%, rgba(144,220,193,1) 7.2%, rgba(225,203,150,1) 31.3%, rgba(251,166,150,1) 82.6%, rgba(250,54,65,1) 128.5% ); */
-    /* transform: translate(-50%,-80%); */
     color: #333;
     color: purple;
-    outline: none;
-    /* border: 3px solid white; */
-     /* font-size: 1.05vw; */
-   
+    outline: none; 
     background-size: 400% 400%;
-    /* box-shadow: .9vw .8vw 0 white; */
     cursor: pointer;
     transition: all 0.3s ease;
-    /* margin-top: 20px; */
-    /* display: flex;
-    align-content: center;
-    justify-content: center;
-    max-height: 50px; */
-    
-  
 }
 
 button:hover{
     background-image: linear-gradient( 107.7deg,  rgba(101,168,143,1) -30.7%, rgba(144,220,193,1) 7.2%, rgba(225,203,150,1) 31.3%, rgba(251,166,150,1) 82.6%, rgba(250,54,65,1) 128.5% );
     background-image: linear-gradient( 107.7deg, white -30.7%, #efefef 7.2%,white 31.3%, lightgrey 82.6%, grey 128.5% );
-
     animation: gradient 10s ease infinite;
-    /* font-size: 2.05vw; */
-
-    /* box-shadow: 0.2vw 0.2vw 0 white; */
-        border: 3px solid white;
+    border: 3px solid white;
 }
+
 @keyframes gradient {
   50% {
     background-position: 100% 0;
@@ -204,17 +167,11 @@ button:hover{
     height: 450px;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* position: relative; */
-    /* align-content: flex-start;
-    align-items: flex-start; */
 }
 
   .time-and-score-container {
     display: flex;
-   
     width:90%;
-    /* height: 480px; */
     margin: 0 auto;
     top:20px;
     font-family: 'UnifrakturCook', sans-serif;
@@ -224,9 +181,7 @@ button:hover{
     z-index: 5;
     position: relative;
     justify-content: space-between;
-    align-content: flex-start;
-    /* margin-top: 50%; */
-   
+    align-content: flex-start; 
 }
 
 .stats {
@@ -234,16 +189,3 @@ button:hover{
     margin: 0 auto;
     text-align: center;
 }
-/* 
-.time-and-score-container {
-    width: 1000px;
-    margin: -30px auto;
-    display: flex;
-    align-content: flex-end;
-    justify-content: flex-end;
-    align-items:flex-end;
-    position: relative;
-    position: absolute;
-    z-index: 1000;
-    margin-top: 0px;
-} */

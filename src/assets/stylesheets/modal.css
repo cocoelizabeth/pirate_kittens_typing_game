@@ -1,10 +1,10 @@
-
 .game-start:first-child{
      align-items:flex-end;
     align-content: flex-end;
     justify-content: flex-end;
     margin-top: 0px;
 }
+
 .button-container {
     width: 1000px;
     margin: -30px auto;
@@ -13,45 +13,26 @@
     justify-content: flex-end;
     align-items:flex-end;
     position: absolute;
-    /* margin-top: 0px; */
 }
 
 #btn:hover {
-    /* background: linear-gradient(45deg,#d350db,teal,#d350db);  */
     opacity: 1;
-    /* color: teal; */
     color: white;
 }
 
-
 #btn {
- /* position: absolute; */
- font-size: 13px;
- font-weight: 900;
- /* border-radius:8px; */
- /* padding:20px; */
-margin-top: 0px;
- /* float: right; */
- z-index: 101;
- /* margin: 40px; */
- /* color: teal; */
+    font-size: 13px;
+    font-weight: 900;
+    margin-top: 0px;
+    z-index: 101;
     transition: 0.35s ease-in-out;
- /* background: white;
- color: pink;
- border: 3px solid pink; */
- opacity: 0.5;
- 
- /* width: inherit; */
+    opacity: 0.5;
 }
 
 #btn:hover {
-    /* background: linear-gradient(45deg,#d350db,teal,#d350db);  */
     opacity: 1;
-    /* color: teal; */
-    color: purple;
-    
+    color: purple; 
 }
-
 
 .modal{
     box-sizing: border-box;
@@ -59,7 +40,6 @@ margin-top: 0px;
     font-weight: 200;
     min-height: 100vh;
     min-width: 100vw;
-    /* display: flex; */
     display: none;
     position: fixed;
     justify-content: center;
@@ -70,9 +50,6 @@ margin-top: 0px;
     overflow: auto;
     background-color: black;
     background-color: rgba(0,0,0, 0.4);
-
-
-
 }
 
 .rule-header {
@@ -85,32 +62,30 @@ margin-top: 0px;
     background-color: #333;
     margin:0 auto;
     padding: 30px;
-    border: 8px solid white;ww
+    border: 8px solid white;
     border-radius: 16px;
     max-width: 50%;
     list-style-type: circle;
     transition: .35s ease-in-out;
     color: white;
-    
 }
+
 .modal-content > h2 {
     font-size: 20px;
     margin-top: 20px;
-        transition: .35s ease-in-out;
+    transition: .35s ease-in-out;
 }
+
 .modal-content > ul{
     margin-left: 1em;
     list-style-type: circle;
     margin-top: 20px;
-        transition: .35s ease-in-out;
-    
+    transition: .35s ease-in-out; 
 }
 
 .modal-content > ul > li {
     margin-bottom: 1em;
-        transition: .35s ease-in-out;
-    
-    
+    transition: .35s ease-in-out;   
 }
 
 .close {
