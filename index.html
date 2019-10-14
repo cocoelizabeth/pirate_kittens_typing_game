@@ -2,135 +2,122 @@
 
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-with, initial-scale=1.0">
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-with, initial-scale=1.0">
+        <title>Pirate Kittens</title>
 
-    <title>Pirate Kittens</title>
+        <!-- FAVICON -->
+        <link rel='icon' href='favicon.ico' type='image/x-icon'/>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        
+        <!-- SCRIPTS -->
+        <script src="https://kit.fontawesome.com/455d3a0ca3.js"></script>
 
-    <!-- FAVICON -->
-    <link rel='icon' href='favicon.ico' type='image/x-icon'/>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+        <!-- FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=UnifrakturCook:700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400&display=swap" rel="stylesheet">
+
+        <!-- STYLESHEETS -->
+        <link href="./src/assets/stylesheets/reset.css" rel="stylesheet">
+        <link href="./src/assets/stylesheets/fontawesome-all.min.css" rel="stylesheet">
+        <link href="./src/assets/stylesheets/game.css" rel="stylesheet">
+        <link href="./src/assets/stylesheets/splash.css" rel="stylesheet">
+        <link href="./src/assets/stylesheets/typography.css" rel="stylesheet">
+        <link href="./src/assets/stylesheets/main-menu.css" rel="stylesheet">
+        <link href="./src/assets/stylesheets/modal.css" rel="stylesheet">
+    </head>
     
-    <!-- SCRIPTS -->
-    <script src="https://kit.fontawesome.com/455d3a0ca3.js"></script>
+    <body>
+        <div class="area"></div>
 
-    <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=UnifrakturCook:700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400&display=swap" rel="stylesheet">
-
-    <!-- STYLESHEETS -->
-    <link href="./src/assets/stylesheets/reset.css" rel="stylesheet">
-    <link href="./src/assets/stylesheets/fontawesome-all.min.css" rel="stylesheet">
-    <link href="./src/assets/stylesheets/game.css" rel="stylesheet">
-    <link href="./src/assets/stylesheets/splash.css" rel="stylesheet">
-    <link href="./src/assets/stylesheets/typography.css" rel="stylesheet">
-    <link href="./src/assets/stylesheets/main-menu.css" rel="stylesheet">
-    <link href="./src/assets/stylesheets/modal.css" rel="stylesheet">
-</head>
-
-    <div class="area"></div>
-    <nav class="main-menu">
-        <ul class="icons">
-            <li>
-                <a href="https://github.com/cocoelizabeth/pirate_kittens_typing_game" target="_blank" label="Repository">
-                    <i class="fas fa-code"></i>
-                    <span class="label">
-                        Repository
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/cocoelizabeth" target="_blank" label="GitHub">
-                    <i class="fab fa-github"></i>
-                    <span class="label">
-                        GitHub
-                    </span>
-                </a>
-            </li>
-
-            <li>
-                <a href="https://www.linkedin.com/in/coco-kuntz-90b8a514/" target="_blank" label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                    <span class="label">
-                       LinkedIn
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="https://angel.co/coco-kuntz?public_profile=1" target="_blank" label="AngelList">
-                    <i class="fab fa-angellist"></i>
-                    <span class="label">
-                        AngelList
-                    </span>
-                </a>
-            </li>
-            
-            <li>
-                <a href="https://cocoelizabeth.github.io" target="_blank" label="Personal Portfolio">
-                    <i class="fas fa-briefcase"></i>
-                    <span class="label">
-                        Personal Portfolio
-                    </span>
-                </a>
-            </li>
-
-            <li>
-                <a href="mailto:cocoelizabeth89@gmail.com" target="_blank" label="Personal Portfolio">
-                    <i class="icon fas fa-envelope"></i>
-                    <span class="label">
-                        Email
-                    </span>
-                </a>
-            </li>
-
-        </ul>
-    </nav>
-
-    <!-- header -->
-<!-- <header id="header">
-
-<ul class="icons">
-    <li><a href="https://github.com/cocoelizabeth" target="_blank" label="GitHub"><i class="fab fa-github"></i>GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/coco-kuntz-90b8a514/" target="_blank"><span class="label"><i class="fab fa-linkedin"></i>LinkedIn</span></a></li>
-    <li><a href="https://angel.co/coco-kuntz?public_profile=1" target="_blank"><span class="label"><i class="fab fa-angellist"></i></i>Angel List</span></a></li>
-    <li><a href="https://angel.co/coco-kuntz?public_profile=1" target="_blank"><span class="label"><i class="fas fa-briefcase"></i></i>Personal Porfolio</span></a></li>
-
-    <li><a href="mailto:cocoelizabeth89@gmail.com" class="icon fas fa-envelope" target="_blank"><span
-                class="label">Email</span></a></li>
-</ul>
-</header> -->
-   
-    
-    <div class='modal' id='modal'>
-        <div class='modal-content'>
-            <span class="close">&times;</span>
-            <h1 class='title'>How to Play</h1>
-            <h2 class="rule-header">Don't let the pirate kittens take over your island!</h2>
-            <ul>
-             <li>Type the words on the pirate ships to collect coins and protect the island</li>
-             <li>The longer the word, the higher your the score</li>
-            <li>If a pirate kitten reaches the island, it will place a flag and you will lose a life</li>
-            <li>The game ends when you lose all three lives or the time runs out</li>
-            <li>Push <b>ENTER</b> to clear your entire input</li>
+        <!-- SIDE MENU -->
+        <nav class="main-menu">
+            <ul class="icons">
+                <li>
+                    <a href="https://github.com/cocoelizabeth/pirate_kittens_typing_game" target="_blank" label="Repository">
+                        <i class="fas fa-code"></i>
+                        <span class="label">
+                            Repository
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/cocoelizabeth" target="_blank" label="GitHub">
+                        <i class="fab fa-github"></i>
+                        <span class="label">
+                            GitHub
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/coco-kuntz-90b8a514/" target="_blank" label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                        <span class="label">
+                        LinkedIn
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://angel.co/coco-kuntz?public_profile=1" target="_blank" label="AngelList">
+                        <i class="fab fa-angellist"></i>
+                        <span class="label">
+                            AngelList
+                        </span>
+                    </a>
+                </li>           
+                <li>
+                    <a href="https://cocoelizabeth.github.io" target="_blank" label="Personal Portfolio">
+                        <i class="fas fa-briefcase"></i>
+                        <span class="label">
+                            Personal Portfolio
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:cocoelizabeth89@gmail.com" target="_blank" label="Personal Portfolio">
+                        <i class="icon fas fa-envelope"></i>
+                        <span class="label">
+                            Email
+                        </span>
+                    </a>
+                </li>
             </ul>
+        </nav>
+
+        <!-- HOW TO PLAY MODAL -->
+        <div class='modal' id='modal'>
+            <div class='modal-content'>
+                <span class="close">&times;</span>
+                <h1 class='title'>How to Play</h1>
+                <h2 class="rule-header">Don't let the pirate kittens take over your island!</h2>
+                <ul>
+                    <li>Type the words on the pirate ships to collect coins and protect the island</li>
+                    <li>The longer the word, the higher your the score</li>
+                    <li>If a pirate kitten reaches the island, it will place a flag and you will lose a life</li>
+                    <li>The game ends when you lose all three lives or the time runs out</li>
+                    <li>Push <b>ENTER</b> to clear your entire input</li>
+                </ul>
+            </div>
         </div>
-    </div>
 
-    <div class="game-message-container">
-        <span id=message class="message"></span>
-    </div>
-    <div class="game">
+        <div class="game-message-container">
+            <span id=message class="message"></span>
+        </div>
 
-         <img src=" https://game-seeds.s3.amazonaws.com/1024-background.png" class="background" />
-         <div class="game-header">
 
-            <div class="time-and-score-container">
-                
+        <div class="game">
+            <!-- BACKGROUND IMAGE -->
+            <img src=" https://game-seeds.s3.amazonaws.com/1024-background.png" class="background" />
+        
+            <!-- GAME HEADER -->
+            <div class="game-header">
+                <!-- Game Stats -->
+                <div class="time-and-score-container">           
                     <div class="stats" ;>Coins:
                         <span id="numMatches">0</span>
                     </div>
@@ -144,78 +131,46 @@
                         <span id="score">0</span>
                     </div>
                 </div>
+                <!-- User Word Input-->
                 <input type="text" id="word-input" class="user-word-input" placeholder="Start typing..." autofocus />
-        <g class=birds>
-            <div class="bird"></div>
-        </g>
+                <!-- Flying Bird Animation -->
+                <g class=birds><div class="bird"></div></g>
             </div>
+            
+            <!-- CANVAS -->
+            <canvas id="canvas" width="1024" height="450"></canvas>
 
-        <canvas id="canvas" width="1024" height="450"></canvas>
-
-                
-
-
-         <!-- <img src="https://game-seeds.s3.amazonaws.com/svg+overlay.svg" class="svg-trees" /> -->
-
-   
-        <!-- <img src="https://game-seeds.s3.amazonaws.com/kitten-game-background-gradient.svg" class="background" /> -->
-         <!-- <img src="https://game-seeds.s3.amazonaws.com/kitten-game-background-island.svg" class="background" /> -->
-      
-         <!-- <div class="gameover"> -->
-        <div class="gameover" style="display:none;">
-            <h1 class="type-animation">Game Over</h1>
-            <h2>Final Score:
-                <span id="final-score">0</span>
-            </h2> 
-            <h2>Words Per Minute:
-                <span id="wpm">0</span>
-            </h2>
-             <button id="play-again-button">Play Again</button>
-
-            <!-- <button id="btn" class="play-again-button">Play Again</button> -->
-        </div>
-
-       
-
-        <div class="game-start" style="display:flex">
-        <div class="button-container">
-            <button class="btn" id="btn">?</button>
-        </div>
-                <h1 class="game-title">Pirate Kittens</h1>
-                <h1 class="type-animation-start">typing game</h1>
-                <!-- <button class="btn" id="btn">How to Play</button> -->
-                <p class="push-space-to-start">push space bar to start</p>
-        </div>
-      
-                <!-- <h2>Final Score:
+            <!-- GAME OVER SCREEN -->
+            <div class="gameover" style="display:none;">
+                <h1 class="type-animation">Game Over</h1>
+                <h2>Final Score:
                     <span id="final-score">0</span>
                 </h2> 
                 <h2>Words Per Minute:
                     <span id="wpm">0</span>
                 </h2>
-                <button id="play-again-button">Start Game (or push spacebar)</button> -->
-           
+                <button id="play-again-button">Play Again</button>
+            </div>
 
-    </div>
-    
+            <!-- GAME START SCREEN -->
+            <div class="game-start" style="display:flex">
+                <!-- How to play button -->
+                <div class="button-container">
+                    <button class="btn" id="btn">?</button>
+                </div>
+                <!-- Words on screen -->
+                <h1 class="game-title">Pirate Kittens</h1>
+                <h1 class="type-animation-start">typing game</h1>
+                <p class="push-space-to-start">push space bar to start</p>
+            </div>
+        </div>
+        
+        <!-- PIRATE FLAG IMAGES -->
+        <img src="https://game-seeds.s3.amazonaws.com/pirate-flag.svg" id="flag1" class="flag"/>
+        <img src="https://game-seeds.s3.amazonaws.com/pirate-flag.svg" id="flag2" class="flag"/>
+        <img src="https://game-seeds.s3.amazonaws.com/pirate-flag.svg" id="flag3" class="flag" />
 
-        <!-- <div>
-            <img src="https://game-seeds.s3.amazonaws.com/cheetah-edited.png" id="cheetah" class="large-cheetah-image" />
-        </div> -->
-
-                    <img src="https://game-seeds.s3.amazonaws.com/pirate-flag.svg" id="flag1" class="flag"/>
-                    <img src="https://game-seeds.s3.amazonaws.com/pirate-flag.svg" id="flag2" class="flag"/>
-                    <img src="https://game-seeds.s3.amazonaws.com/pirate-flag.svg" id="flag3" class="flag" />
-
-   
-    <script type="text/javascript" src="./dist/bundle.js"></script>
-
-  
-
-
-
-
-</body>
-
+        <script type="text/javascript" src="./dist/bundle.js"></script>
+    </body>
 </html>
 
