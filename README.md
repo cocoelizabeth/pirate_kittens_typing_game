@@ -9,9 +9,6 @@ Pirate Kittens Typing Game is an animated JavaScript Typing Game with a vibrant 
 
 ![Screenshot](https://raw.githubusercontent.com/cocoelizabeth/pirate_kittens_typing_game/master/pirate-kittens-screen-shot.png)
 
-The kitten graphics are inspired by Lisa Frank.
-
-![Screenshot](https://www.cardlike.com/sites/cardlike.com/files/card_art/Card-Lisa-Frank-22.jpg)
 
 ## Functionality and MVP Features
 * Players will see pirate kittens sail in from the left
