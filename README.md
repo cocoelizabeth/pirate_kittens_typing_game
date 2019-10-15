@@ -20,7 +20,7 @@ Pirate Kittens Typing Game is an animated JavaScript Typing Game with a vibrant 
 
 ```
 function startGame() {
-     // start game when player presses space bar
+    // Start game when player presses space bar
     window.addEventListener('keyup', function (e) {
         if (e.keyCode === 32) {
             e.preventDefault();
@@ -36,7 +36,7 @@ function startGame() {
 
 function init() {
     drawKitten();
-    // Start  matching on word input
+    // Start matching on word input
     wordInput.focus();
     wordInput.addEventListener('input', handleMatch);
     // Clear input when player presses enter
@@ -53,7 +53,6 @@ function init() {
     setInterval(updateScore, 400);
     // Gradually increase the speed that kittens are released
     setInterval(updateReleaseKittenInterval, 500);
-    // setInterval(releaseMoreKittens, 2000);
 }
 ```
 
@@ -92,37 +91,5 @@ function init() {
 
 
 
-## Implementation Timeline:
-**Weekend**
-- [x] Complete Brickbreaker tutorial
-
-**Monday**
-- [x] Brainstorm initial concept
-- [x] Create Repo
-- [x] Finish Timeline
-
-**Tuesday**
-- [ ] Briefly research games using HTML5 canvas,  vector graphics, and paper.js
-- [ ] Finalize structure
-- [ ] Complete basic page skeleton and functionality
-- [ ] Complete board design and rendering
-
-**Wednesday**
-- [ ] Implement typing game logic
-- [ ] Implement logic to slow down kittens
-
-**Thursday**
-- [ ] Finish implementing functionality
-- [ ] Finish scoreboard
-- [ ] Styling and animation
-
-**Friday**
-- [ ] Finish Styling
-- [ ] Start Bonus Features
-
-## Bonus Features
-* Music
-* High Score Saving
-* Ability to choose level of dificulty 
 
 
