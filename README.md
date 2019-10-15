@@ -16,7 +16,7 @@ Pirate Kittens Typing Game is an animated JavaScript Typing Game with a vibrant 
 
 - Start game when player presses `spacebar` based on keyup event when `!isPlaying`
 - Clear word input when player presses `enter` when `isPlaying`
-- Matching user input to `Words` dictionary object in order for  the user to stop the kittens from reaching the shore and to collect coins
+- Matching user input to `Words` dictionary object in order for  the player to stop the kittens from reaching the shore and to collect coins
 
 ```
 function startGame() {
@@ -45,6 +45,7 @@ function init() {
             wordInput.value = "";
         }
     });
+
     // Call countdown every second
     setInterval(countdown, 1000);
     // Check game status
@@ -56,7 +57,19 @@ function init() {
 }
 ```
 
-* Players will see pirate kittens sail in from the left
+## Random Generation & Animation
+### Random Words & Positions
+* Each newly generated kitten is assigned a random word from the `Words` dictionary object that is animated on its ship
+* Each newly generated kitten is assigned a random position on the y-axis to begin sailing in from (this sometimes adds to the difficulty of the game when kittens overlap and the player must type the word of the kitten in the foreground to reveal the word below it)
+### Animation
+* Players will see pirate kittens sail in from the left until they type the word correctly or the kitten reaches the shore
+* When a player correctly types the word an SVG coin sprite is animated based on the coordinates of the kitten, and the player collects coins and points in the scorebar
+![gif]()
+
+
+*   Generated random words from `Word` dictionary object 
+
+* 
 * Players type words stop kittens from reaching the shore and collect coins 
 * The game ends when 3 kittens reach the shore or time runs out
 * Pirate kittens should continuously sail in until they reach the shore 
@@ -83,7 +96,7 @@ function init() {
 * `index.js`: entry file, main structure of the canvas and the center game logic and the rules modal;
 * `coin.js`: handles coin animation;
 * `flag.js`: handles flag animation when kitten reaches the shore;
-* `kitten.js`: handles kitten animation and reaction to user typing input; 
+* `kitten.js`: handles kitten animation and reaction to player typing input; 
 
 
 
