@@ -77,15 +77,11 @@ function init() {
 ### `Custom Graphics`
 * Custom vector graphics designed in Adobe Illustrator and Photoshop
 
-### `Words API`
-* A words API to generate random words (future implementation)
-
 ### File Structure:
 * Webpack entry file
 * `index.html`: renders the canvas;
-* `index.js`: entry file, main structure of the canvas and the center game logic;
+* `index.js`: entry file, main structure of the canvas and the center game logic and the rules modal;
 * `coin.js`: handles coin animation;
-* `modal.js`: renders the rules modal;
 * `flag.js`: handles flag animation when kitten reaches the shore;
 * `kitten.js`: handles kitten animation and reaction to user typing input; 
 
