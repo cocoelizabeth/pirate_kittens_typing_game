@@ -64,7 +64,7 @@ function init() {
 ### Animation
 * Players will see pirate kittens sail in from the left until they type the word correctly or the kitten reaches the shore
 * When a player correctly types the word an SVG coin sprite is animated based on the coordinates of the kitten, and the player collects coins and points in the scorebar
-![gif]()
+![gif](src/assets/img/pirate-kittens-shorter.gif)
 
 
 *   Generated random words from `Word` dictionary object 
