@@ -105,7 +105,7 @@ function init() {
     setInterval(countdown, 1000);
     // Check game status
     setInterval(checkStatus, 50);
-    // Check/update score every .4 seconds\
+    // Check/update score every .4 seconds
     setInterval(updateScore, 400);
     // Gradually increase the speed that kittens are released
     setInterval(updateReleaseKittenInterval, 500);
