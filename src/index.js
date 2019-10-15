@@ -18,10 +18,10 @@ let totalChars = 0;
 
 // Images
 const kittenImage = new Image();
-    kittenImage.src = 'https://game-seeds.s3.amazonaws.com/pirate-outline-height-130.png';
-    const kittenPos = [0, 400];
+kittenImage.src = 'https://game-seeds.s3.amazonaws.com/pirate-outline-height-130.png';
+const kittenPos = [0, 400];
 const coinSprite = new Image();
-    coinSprite.src = "https://game-seeds.s3.amazonaws.com/coin-sprite-sheet.png";
+coinSprite.src = "https://game-seeds.s3.amazonaws.com/coin-sprite-sheet.png";
 
 // DOM Elements
 const canvas = document.getElementById('canvas');
@@ -50,7 +50,7 @@ const flag3 = document.querySelector('#flag3');
 
 // const currentMode = mode.words;
 
-window.addEventListener('load', startGame);
+
 
 // MODAL
 const modal = document.getElementById("modal");
@@ -69,9 +69,11 @@ window.onclick = function (e) {
     if (e.target === modal) {
         modal.style.display = "none";
     }
-}
+};
 
-// Logic
+// GAME LOGIC
+
+window.addEventListener('load', startGame);
 
 function startGame() {
      // start game when player presses space bar
@@ -90,10 +92,10 @@ function startGame() {
 
 function init() {
     drawKitten();
-    // start  matching on word input
+    // Start  matching on word input
     wordInput.focus();
     wordInput.addEventListener('input', handleMatch);
-    // clear input when player presses enter
+    // Clear input when player presses enter
     wordInput.addEventListener('keypress', function(e) {
         if (e.keyCode === 13) {
             wordInput.value = "";
@@ -202,7 +204,7 @@ function countdown() {
     timeDisplay.innerHTML = time;
 }
 
-// Check game status
+// Check if game is over 
 function isGameOver() {
     if (time === 0 || lives < 1) {
         return true;
@@ -211,11 +213,13 @@ function isGameOver() {
     }
 }
 
+// Check game status
 function checkStatus() {
     message.innerHTML = 'Pirate Kittens';
+    // Logic for changing status when game is over
     if (isGameOver() && isPlaying) {   
         isPlaying = false;
-
+        // Store player stats to display on game over screen
         const playerStats = {
             yourScore: score,
             totalChars: totalChars,
@@ -224,17 +228,16 @@ function checkStatus() {
         };
         
         Object.freeze(playerStats);
-
+        // Stop calling game logic
         clearInterval(init);
-
+        // Display game over screen and player stats
         gameOver.style.display = "flex";
         finalScore.innerHTML = playerStats.yourScore;
         wpm.innerHTML = playerStats.wpm;
-
+        // Reload game when player clicks button or presses space bar
         playAgainButton.addEventListener('click', ()=> {
             location.reload();
         });
-
         document.addEventListener('keyup', function(e){
             if (e.keyCode === 32) {
                 window.location.reload();
@@ -243,6 +246,7 @@ function checkStatus() {
     }
 }
 
+// Animate the generated kittens 
 function animate(activeKittens) {
     ctx.clearRect(0, 0, 1024, 450);
     
@@ -251,7 +255,7 @@ function animate(activeKittens) {
         
         if (currentCat.update()) {
             i--;
-           
+           // Lose life and render flag if kitten reaches shore
             livesDisplay.innerHTML--;
             const pos = currentCat.kittenPos;
           
