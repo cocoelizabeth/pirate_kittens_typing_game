@@ -18,7 +18,7 @@ Pirate Kittens Typing Game is an animated JavaScript Typing Game with a vibrant 
 * Clear word input when player presses `enter` when `isPlaying`
 * Matching user input to `Words` dictionary object in order for  the player to stop the kittens from reaching the shore and to collect coins
 
-```
+```javascript
 function startGame() {
     // Start game when player presses space bar
     window.addEventListener('keyup', function (e) {
