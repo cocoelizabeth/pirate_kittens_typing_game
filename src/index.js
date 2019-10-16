@@ -76,7 +76,7 @@ window.onclick = function (e) {
 window.addEventListener('load', startGame);
 
 function startGame() {
-     // start game when player presses space bar
+     // Start game when player presses space bar
     window.addEventListener('keyup', function (e) {
         if (e.keyCode === 32) {
             e.preventDefault();
@@ -115,8 +115,8 @@ function init() {
 function drawKitten () {
     // Generate random word for each kitten
     const word = randomWord(words);
-    // Create kitten
-    const newKitten = new Kitten([0, 200], word, kittenImage, activeKittens, currentWords, ctx);
+    // Create new Kitten object
+    const newKitten = new Kitten([0, 200], word, kittenImage, ctx, null, activeKittens, currentWords);
     activeKittens.push(newKitten);
     window.requestAnimationFrame((timestamp) => {
         if (isPlaying) {

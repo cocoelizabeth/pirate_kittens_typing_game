@@ -16,6 +16,7 @@ class Kitten {
         // remove kitten & their respective word from active kittens & words list 
         // if they reach the shore or the player correctly types their word
         if (this.kittenPos[0] > 800 || this.active === false) {
+            debugger
             let i = this.activeKittens.indexOf(this);
             this.activeKittens.splice(i, 1);
             this.currentWords.splice(i, 1);
