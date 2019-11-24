@@ -130,7 +130,7 @@ function releaseMoreKittens() {
     if (isPlaying) {
         const word = randomWord();
         const pos = randomPosition();
-        const newKitten = new Kitten(pos, word, kittenImage, activeKittens, currentWords, ctx);
+        const newKitten = new Kitten(pos, word, kittenImage, ctx, lives, activeKittens, currentWords);
         activeKittens.push(newKitten);
     }
 }
