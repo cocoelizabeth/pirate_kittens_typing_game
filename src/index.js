@@ -142,7 +142,7 @@ function updateScore() {
 }
 
 function updateReleaseKittenInterval() { 
-    this.releaseKittenInterval -=200;
+    this.releaseKittenInterval -=400;
 }
 
 function matchInput() {
@@ -232,6 +232,7 @@ function checkStatus() {
         clearInterval(init);
         // Display game over screen and player stats
         gameOver.style.display = "flex";
+        gameOver.style.zindex="1000";
         finalScore.innerHTML = playerStats.yourScore;
         wpm.innerHTML = playerStats.wpm;
         // Reload game when player clicks button or presses space bar
